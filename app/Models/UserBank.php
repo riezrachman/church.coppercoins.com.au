@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BankInstitution extends Model
+class UserBank extends Model
 {
 
     use HasFactory;
@@ -22,7 +22,7 @@ class BankInstitution extends Model
      *
      * @var string
      */
-    protected $table = 'ms_institutions';
+    protected $table = 'ms_users';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
@@ -43,7 +43,7 @@ class BankInstitution extends Model
      *
      * @var array
      */
-    protected $with = [];
+    protected $with = ['accounts'];
 
     /**
      * The accessors to append to the model's array form.
@@ -72,5 +72,13 @@ class BankInstitution extends Model
      * @var array<string, string>
      */
     protected $casts = [];
+
+    public function accounts() {
+        return $this->hasMany(UserBankAccount::class, 'basiq_id', 'basiq_id');
+    }
+
+    public function transactions() {
+        return $this->hasMany(Transaction::class, 'basiq_id', 'basiq_id');
+    }
 
 }

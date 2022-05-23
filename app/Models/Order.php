@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Campaign extends Model
+class Order extends Model
 {
 
     use HasFactory, SoftDeletes;
@@ -16,14 +16,14 @@ class Campaign extends Model
      *
      * @var string
      */
-    protected $table = 'campaigns';
+    protected $table = 'orders';
 
     /**
      * The relationships that should always be loaded.
      *
      * @var array
      */
-    protected $with = ['category', 'church'];
+    protected $with = ['user', 'store', 'items'];
 
     /**
      * The accessors to append to the model's array form.
@@ -35,18 +35,21 @@ class Campaign extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
-        'church_id',
-        'category_id',
-        'name',
-        'introduction',
-        'campaign_content',
-        'donation_content',
-        'logo_image',
-        'banner_image',
+        'transaction_id',
+        'user_address_id',
+        'user_id',
+        'store_id',
         'status',
+        'shipment_code',
+        'payment_id',
+        'total',
+        'shipment_total',
+        'subtotal',
+        'tax',
+        'grandtotal',
     ];
 
     /**
@@ -55,8 +58,10 @@ class Campaign extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'church_id',
-        'category_id',
+        'user_address_id',
+        'user_id',
+        'store_id',
+        'payment_id',
         'deleted_at',
     ];
 
@@ -67,14 +72,19 @@ class Campaign extends Model
      */
     protected $casts = [];
 
-    public function church()
+    public function user()
     {
-        return $this->belongsTo(Church::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function category()
+    public function store()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Store::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 
 }

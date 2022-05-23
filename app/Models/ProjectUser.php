@@ -4,46 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BankInstitution extends Model
+class ProjectUser extends Model
 {
 
-    use HasFactory;
-
-    /**
-     * The database connection that should be used by the model.
-     *
-     * @var string
-     */
-    protected $connection = 'mysql_bank';
+    use HasFactory, SoftDeletes;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'ms_institutions';
-
-    /**
-     * Indicates if the model's ID is auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
+    protected $table = 'project_user';
 
     /**
      * The relationships that should always be loaded.
      *
      * @var array
      */
-    protected $with = [];
+    protected $with = ['user'];
 
     /**
      * The accessors to append to the model's array form.
@@ -57,14 +37,21 @@ class BankInstitution extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'project_id',
+        'user_id',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'project_id',
+        'user_id',
+        'deleted_at',
+    ];
 
     /**
      * The attributes that should be cast.
@@ -72,5 +59,15 @@ class BankInstitution extends Model
      * @var array<string, string>
      */
     protected $casts = [];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

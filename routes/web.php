@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/dashboard');
 
-Route::get('login', 'AuthController@index')->name('login');
-Route::get('register', 'AuthController@index')->name('register');
+Route::view('login', 'auth.login')->name('login');
+Route::view('register', 'auth.register')->name('register');
 
 Route::middleware(['auth:sanctum', 'email_verified'])->group(function(){
 

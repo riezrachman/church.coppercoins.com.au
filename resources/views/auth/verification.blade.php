@@ -74,7 +74,7 @@
 		</div>
 	</div>
 	<h2 class="mb-4" style="color:#333;">Verification</h2>
-	<img src="{{ asset('assets/img/verification.png') }}" class="mt-2" style="width:250px;" draggable="false">
+	<img src="{{ asset('assets/images/verification.png') }}" class="mt-2" style="width:250px;" draggable="false">
 	<p class="mt-4 pt-1" style="font-size:15px;color:#696969;line-height:25px;">
 		Please check your email to verify your account.<br>
 		Let's go you started on your goals. Already verified?

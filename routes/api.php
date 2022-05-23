@@ -14,16 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/auth/check', 'AuthController@checkUser');
-Route::post('/auth/confirm-email', 'AuthController@confirmEmail');
-
-Route::post('/auth/sign-up', 'AuthController@signUp');
 Route::post('/auth/sign-in', 'AuthController@signIn');
 Route::post('/auth/sign-out', 'AuthController@signOut');
 
 Route::middleware('auth:sanctum')->group(function () {
-    
-    Route::get('/auth/profile', 'AuthController@profile');
 
     Route::get('/dashboard/counter', 'DashboardController@counter');
 

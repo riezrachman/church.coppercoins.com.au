@@ -4,39 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BankInstitution extends Model
+class StoreAddress extends Model
 {
 
-    use HasFactory;
-
-    /**
-     * The database connection that should be used by the model.
-     *
-     * @var string
-     */
-    protected $connection = 'mysql_bank';
+    use HasFactory, SoftDeletes;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'ms_institutions';
-
-    /**
-     * Indicates if the model's ID is auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
+    protected $table = 'store_address';
 
     /**
      * The relationships that should always be loaded.
@@ -57,20 +37,41 @@ class BankInstitution extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'store_id',
+        'is_primary',
+        'label',
+        'address',
+        'city',
+        'state',
+        'country',
+        'postal_code',
+        'contact_name',
+        'contact_phone',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'store_id',
+        'deleted_at',
+    ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'is_primary' => 'bool',
+    ];
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
 
 }

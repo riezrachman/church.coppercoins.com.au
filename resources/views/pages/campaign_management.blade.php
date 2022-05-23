@@ -34,7 +34,7 @@
                             <table>
                                 <tr>
                                     <td style="width:120px;">
-                                        <img src="{{ asset('assets/img/default_image.png') }}" alt="" id="logo_image_display" style="border-radius:50%; object-fit:cover;border:2px dashed #EBEBEB;" width="100px" height="100px" draggable="false">
+                                        <img src="{{ asset('assets/images/default_image.png') }}" alt="" id="logo_image_display" style="border-radius:50%; object-fit:cover;border:2px dashed #EBEBEB;" width="100px" height="100px" draggable="false">
                                     </td>
                                     <td style="vertical-align:middle;">
                                         <div class="d-flex flex-column align-items-stretch justify-content-center">
@@ -320,7 +320,7 @@
 
         } else {
 
-            $(element).attr('src', "{{ asset('assets/img/default_image.png') }}");
+            $(element).attr('src', "{{ asset('assets/images/default_image.png') }}");
 
         }
 
@@ -339,7 +339,7 @@
 
         } else {
 
-            $(element).attr('style', `background-image: url({{ asset('assets/img/default_image.png') }}); background-position: center; background-repeat: no-repeat; background-size: cover;`);
+            $(element).attr('style', `background-image: url({{ asset('assets/images/default_image.png') }}); background-position: center; background-repeat: no-repeat; background-size: cover;`);
 
         }
 

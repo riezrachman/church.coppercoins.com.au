@@ -20,8 +20,8 @@
 
 		<form id="form-login">
 
-			<img src="{{ asset('assets/img/login.png') }}" style="width:180px;" draggable="false">
-			<h2 style="color:#333333;font-size:29px;" class="mt-4 mb-4">Welcome Back to Mypher</h2>
+			<img src="{{ asset('assets/images/logo.png') }}" style="width:180px;" draggable="false">
+			<h2 style="color:#333333;font-size:29px;" class="mt-4 mb-4">Welcome Back</h2>
 
 			<div id="alert"></div>
 
@@ -100,7 +100,7 @@
 
 			console.log(data);
 
-			axios.post(`/api/auth/confirm-email`, data, {
+			axios.post(`${mainAppUrl}/api/auth/confirm-email`, data, {
 				headers: {
 					"Accept": "application/json",
 				},

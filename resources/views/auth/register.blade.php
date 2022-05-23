@@ -87,8 +87,8 @@
 
 		<form id="form-register-1">
 
-			<img src="{{ asset('assets/img/register.png') }}" style="width:180px;" draggable="false">
-			<h2 style="color:#333333;" class="mt-4 mb-4">Register your Charity</h2>
+			<img src="{{ asset('assets/images/logo.png') }}" style="width:180px;" draggable="false">
+			<h2 style="color:#333333;" class="mt-4 mb-4">Register your Church</h2>
 
 			<div id="alert"></div>
 
@@ -130,9 +130,8 @@
 			<div class="pt-5" style="padding-bottom:34px;">
 				<div style="display:flow-root;max-width:1150px;">
 					<ul class="progressbar">
-						<li class="active">Organisation</li>
+						<li class="active">Church</li>
 						<li>Contact Person</li>
-						<li>Bank Account</li>
 						<li>Agreement</li>
 						<li>Verification</li>
 					</ul>
@@ -142,47 +141,31 @@
 
 				<h1 style="display:none;"></h1>
 				<section>
-					<h2 class="mb-4" style="color:#333;">Organisation</h2>
-					<input type="text" name="organization[name]" class="form-control mt-3" placeholder="Enter organisation name" spellcheck="false" maxlength="255" minlength="5" autocomplete="off" required>
-					<input type="text" name="organization[phone]" class="form-control mt-3" placeholder="Enter organisation phone number" spellcheck="false" maxlength="20" minlength="5" autocomplete="off" required>
-					<textarea name="organization[address]" class="form-control mt-3" placeholder="Enter organisation address" spellcheck="false" maxlength="255" minlength="5" style="padding-top:13px !important;padding-bottom:13px !important;height:100px !important;resize:none;" autocomplete="off" required></textarea>
+					<h2 class="mb-4" style="color:#333;">Church</h2>
+					<input type="text" name="church[name]" class="form-control mt-3" placeholder="Enter church name" spellcheck="false" maxlength="255" minlength="5" autocomplete="off" required>
+					<textarea name="church[address]" class="form-control mt-3" placeholder="Enter church address" spellcheck="false" maxlength="255" minlength="5" style="padding-top:13px !important;padding-bottom:13px !important;height:100px !important;resize:none;" autocomplete="off" required></textarea>
 					<div class="row">
-						<div class="col-4">
-							<input type="text" name="organization[city]" class="form-control mt-3" placeholder="City" spellcheck="false" maxlength="255" autocomplete="off" required>
+						<div class="col-6">
+							<input type="text" name="church[city]" class="form-control mt-3" placeholder="City" spellcheck="false" maxlength="255" autocomplete="off" required>
 						</div>
-						<div class="col-4">
-							<input type="text" name="organization[postal_code]" class="form-control mt-3" placeholder="ZIP Code" spellcheck="false" maxlength="255" minlength="3" autocomplete="off" required>
+						<div class="col-6">
+							<input type="text" name="church[state]" class="form-control mt-3" placeholder="State" spellcheck="false" maxlength="255" autocomplete="off" required>
 						</div>
-						<div class="col-4">
-							<input type="text" name="organization[country]" class="form-control mt-3" placeholder="Country" spellcheck="false" maxlength="255" autocomplete="off" required>
+						<div class="col-6">
+							<input type="text" name="church[country]" class="form-control mt-3" placeholder="Country" spellcheck="false" maxlength="255" autocomplete="off" required>
+						</div>
+						<div class="col-6">
+							<input type="text" name="church[postal_code]" class="form-control mt-3" placeholder="ZIP Code" spellcheck="false" maxlength="255" minlength="3" autocomplete="off" required>
 						</div>
 					</div>
-					<hr>
-					<input type="text" name="organization[website_url]" class="form-control mt-3" placeholder="Enter website URL" spellcheck="false" maxlength="255" autocomplete="off" required>
-					<input type="text" name="organization[business_phone]" class="form-control mt-3" placeholder="Enter Australian Business Number (ABN)" spellcheck="false" autocomplete="off" required>
-					<select class="form-control form-select mt-3" name="category_id" style="cursor:pointer;" readonly required>
-						<option value="">Please wait...</option>
-					</select>
 				</section>
 
 				<h1 style="display:none;"></h1>
 				<section>
 					<h2 class="mb-4" style="color:#333;">Contact Person</h2>
 					<input type="text" name="name" class="form-control mt-3" placeholder="Enter your full name" spellcheck="false" minlength="3" maxlength="255" autocomplete="off" required>
-					<input type="email" name="email_2" class="form-control mt-3" placeholder="Enter your email address" spellcheck="false" maxlength="100" autocomplete="off" disabled required>
 					<input type="text" name="phone" class="form-control mt-3" placeholder="Enter your phone number" spellcheck="false" maxlength="20" minlength="5" autocomplete="off" required>
-					<input type="text" name="position_name" class="form-control mt-3" placeholder="Enter your position" spellcheck="false" minlength="2" maxlength="255" autocomplete="off" required>
-				</section>
-
-				<h1 style="display:none;"></h1>
-				<section>
-					<h2 class="mb-4" style="color:#333;">Bank Account</h2>
-					<select class="form-control form-select mt-3" name="bank[ms_institution_id]" style="cursor:pointer;" readonly required>
-						<option value="">Please wait...</option>
-					</select>
-					<input type="text" name="bank[account_name]" class="form-control mt-3" placeholder="Account name" spellcheck="false" maxlength="255" minlength="5" autocomplete="off" required>
-					<input type="text" name="bank[account_number]" class="form-control mt-3" placeholder="Account number" spellcheck="false" maxlength="50" autocomplete="off" required>
-					<input type="text" name="bank[account_bsb]" class="form-control mt-3" placeholder="Bank State Branch (BSB)" spellcheck="false" autocomplete="off" required>
+					<input type="hidden" name="role" value="church">
 				</section>
 
 				<h1 style="display:none;"></h1>
@@ -232,9 +215,9 @@
 	{{-- ADDITIONAL --}}
 	$(document).ready(function(){
 		$('[name="email"]').focus();
-		$('[name="organization[phone]"],[name="phone"]').mask('00000000000000000000', {reverse: true});
-		$('[name="organization[postal_code]"]').mask('00000000');
-		$('[name="organization[business_phone]"]').mask('00 000 000 000');
+		$('[name="church[phone]"],[name="phone"]').mask('00000000000000000000', {reverse: true});
+		$('[name="church[postal_code]"]').mask('00000000');
+		$('[name="church[business_phone]"]').mask('00 000 000 000');
 		$('[name="bank[account_number]"]').mask('00000000000000000000000000000000000000000000000000');
 		$('[name="bank[account_bsb]"]').mask('000 000 000');
 	});
@@ -266,31 +249,11 @@
 			blockUI();
 			$('#alert').empty();
 
-			$.get(`/api/auth/check`, {email: $('[name="email"]').val()}, function(){
-
-				setTimeout(function(){
-
-					$('#alert').html(`
-						<div class="alert alert-warning alert-dismissible fade show mb-4" role="alert">
-							The user with email <b>${$('[name="email"]').val()}</b> is already registered, please sign in instead.
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="alertClose(this);">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					`);
-
-					$('#form-register-1').find('input').val('');
-					$('#create-btn').focus();
-
-					unblockUI();
-
-				}, 250);
-
-			}).fail(function(){
+			$.post(`${mainAppUrl}/api/auth/validate-email`, {email: $('[name="email"]').val()}, function(){
 
 				setTimeout(async function(){
 
-					await $.get(`/api/category`, function(data){
+					await $.get(`${mainAppUrl}/api/category`, function(data){
 
 						$('[name="category_id"]').empty().removeAttr('readonly').append($('<option>', {
 							value: '',
@@ -306,7 +269,7 @@
 
 					});
 
-					await $.get(`/api/bank`, function(data){
+					await $.get(`${mainAppUrl}/api/bank-institution`, function(data){
 
 						$('[name="bank[ms_institution_id]"]').empty().removeAttr('readonly').append($('<option>', {
 							value: '',
@@ -333,6 +296,26 @@
 						unblockUI();
 
 					}, 250);
+
+				}, 250);
+				
+			}).fail(function(){
+				
+				setTimeout(function(){
+
+					$('#alert').html(`
+						<div class="alert alert-warning alert-dismissible fade show mb-4" role="alert">
+							The user with email <b>${$('[name="email"]').val()}</b> is already registered, please sign in instead.
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="alertClose(this);">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					`);
+
+					$('#form-register-1').find('input').val('');
+					$('#create-btn').focus();
+
+					unblockUI();
 
 				}, 250);
 
@@ -399,7 +382,7 @@
 
 			blockUI();
 
-			$('[name="organization[business_phone]"],[name="bank[account_bsb]"]').unmask();
+			$('[name="church[business_phone]"],[name="bank[account_bsb]"]').unmask();
 
 			var form = $('#form-register-2')[0];
 			var fd   = new FormData(form);
@@ -417,7 +400,7 @@
 				cache: false,
 				data: fd,
 				enctype: 'multipart/form-data',
-				url: `/api/auth/sign-up`,
+				url: `${mainAppUrl}/api/auth/sign-up`,
 				success: function(data){
 
 					window.localStorage.setItem('apiToken', data.data.token);

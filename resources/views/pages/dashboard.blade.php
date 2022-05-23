@@ -124,7 +124,7 @@
                     <h5 class="card-title" style="margin-bottom: 0px;">${data.organization.name}</h5>
                 </div>
                 <div class="d-flex px-3">
-                    <img src="{{ asset('assets/img/default_image.png') }}" alt="" style="border-radius: 50%;" width="100px" height="100px">
+                    <img src="{{ asset('assets/images/default_image.png') }}" alt="" style="border-radius: 50%;" width="100px" height="100px">
                     <div class="d-flex flex-column align-items-stretch" style="margin-left: 40px;">
                         <p>
                             <span class="text-muted">ABN</span><br/>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Campaign extends Model
+class CartItem extends Model
 {
 
     use HasFactory, SoftDeletes;
@@ -16,37 +16,32 @@ class Campaign extends Model
      *
      * @var string
      */
-    protected $table = 'campaigns';
+    protected $table = 'cart_item';
 
     /**
      * The relationships that should always be loaded.
      *
      * @var array
      */
-    protected $with = ['category', 'church'];
+    protected $with = ['product', 'product_variant'];
 
     /**
      * The accessors to append to the model's array form.
      *
      * @var array
      */
-    protected $appends = [];
+    protected $appends = ['total'];
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
-        'church_id',
-        'category_id',
-        'name',
-        'introduction',
-        'campaign_content',
-        'donation_content',
-        'logo_image',
-        'banner_image',
-        'status',
+        'cart_id',
+        'product_id',
+        'product_variant_id',
+        'qty',
     ];
 
     /**
@@ -55,8 +50,9 @@ class Campaign extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'church_id',
-        'category_id',
+        'cart_id',
+        'product_id',
+        'product_variant_id',
         'deleted_at',
     ];
 
@@ -65,16 +61,28 @@ class Campaign extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'total' => 'double',
+    ];
 
-    public function church()
+    public function cart()
     {
-        return $this->belongsTo(Church::class);
+        return $this->belongsTo(Cart::class);
     }
 
-    public function category()
+    public function product()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Product::class);
+    }
+
+    public function product_variant()
+    {
+        return $this->belongsTo(ProductVariant::class);
+    }
+
+    public function getTotalAttribute()
+    {
+        return (float) $this->qty * $this->product_variant->price;
     }
 
 }

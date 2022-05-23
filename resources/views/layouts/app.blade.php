@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- TITLE --}}
-    <title>Mypher Charity - @yield('title')</title>
+    <title>{{ env('APP_NAME') }} - @yield('title')</title>
 
     {{-- FAVICON --}}
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo_icon.png') }}">
 
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/main/css/fonts.css') }}">
@@ -36,10 +36,10 @@
         }
         .btn-outline-light:hover{
             background-color: #fff !important;
-            color: #F58220 !important;
+            color: #F29D01 !important;
         }
         a.custom-href{
-            color:#F58220;
+            color:#F29D01;
         }
         a.custom-href:hover{
             text-decoration:underline!important;
@@ -82,12 +82,12 @@
             color: #000000;
         }
         .btn-primary:hover{
-            background-color: #e26a0d !important;
+            background-color: #BA7900 !important;
         }
         .btn-primary:disabled{
             color: #fff;
-            background-color: #e26a0d;
-            border-color: #e26a0d;
+            background-color: #BA7900;
+            border-color: #BA7900;
         }
         .btn-shadow-lg{
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -105,11 +105,11 @@
             font-size:15px;
         }
         .btn-link {
-            color: #F58220;
+            color: #F29D01;
             text-decoration: none !important;
         }
         .btn-link:hover {
-            color: #F58220;
+            color: #F29D01;
             text-decoration: underline !important;
         }
         input.error, textarea.error, select.error{
@@ -153,8 +153,8 @@
             padding: 12px;
         }
         .card.custom-card-warning {
-            background: #F582201A 0% 0% no-repeat padding-box;
-            border: 1px solid #F58220;
+            background: #F29D011A 0% 0% no-repeat padding-box;
+            border: 1px solid #F29D01;
             border-radius: 10px;
             opacity: 1;
             width: 100%;
@@ -204,7 +204,7 @@
             color:#fff;
         }
         .alert-warning{
-            background-color:#F58220;
+            background-color:#F29D01;
             color:#fff;
         }
         .form-check-input{
@@ -213,8 +213,8 @@
             box-shadow:none !important;
         }
         .form-check-input:checked{
-            border-color:#F58220;
-            background-color:#F58220;
+            border-color:#F29D01;
+            background-color:#F29D01;
         }
         .custom-control-input:focus ~ .custom-control-label::before {
             box-shadow:none !important;
@@ -223,8 +223,8 @@
             border-radius:10px;
         }
         .swal2-icon.swal2-question{
-            color:#F58220;
-            border-color:#F58220;
+            color:#F29D01;
+            border-color:#F29D01;
         }
         .swal2-styled.swal2-confirm, .swal2-styled.swal2-cancel{
             border-radius:7px;
@@ -234,7 +234,7 @@
             font-size:16px;
         }
         .swal2-styled.swal2-confirm{
-            background-color: #F58220;
+            background-color: #F29D01;
         }
         .swal2-title, .swal2-content{
             color:#333;
@@ -245,13 +245,13 @@
             padding:.5em 2.3em;
         }
         .btn-outline-primary{
-            border-color: #F58220;
-            color: #F58220;
+            border-color: #F29D01;
+            color: #F29D01;
             background-color: transparent;
         }
         .btn-outline-primary:hover{
-            border-color: #F58220;
-            background-color: #F58220;
+            border-color: #F29D01;
+            background-color: #F29D01;
             color:#fff;
         }
         p{
@@ -361,6 +361,7 @@
 
         const myStorage = window.localStorage;
 
+        const mainAppUrl = "{{ env('MAIN_APP_URL') }}";
         const apiToken = myStorage.getItem('apiToken');
 
         // console.log(`API Token: ${apiToken}`);
@@ -414,7 +415,7 @@
             $.blockUI({
                 message: `
                     <center>
-                        <img src="{{ asset('assets/img/icon.png') }}" class="icn-spinner" style="width: 60px;" draggable="false" onerror="imgError(this)">
+                        <img src="{{ asset('assets/images/logo_icon.png') }}" class="icn-spinner" style="width: 60px;" draggable="false" onerror="imgError(this)">
                         <br />
                         <div class="spinner-border spinner-border-sm text-primary mt-4" role="status">
                             <span class="sr-only">Loading...</span>

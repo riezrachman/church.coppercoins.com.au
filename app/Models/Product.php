@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Campaign extends Model
+class Product extends Model
 {
 
     use HasFactory, SoftDeletes;
@@ -16,14 +16,14 @@ class Campaign extends Model
      *
      * @var string
      */
-    protected $table = 'campaigns';
+    protected $table = 'products';
 
     /**
      * The relationships that should always be loaded.
      *
      * @var array
      */
-    protected $with = ['category', 'church'];
+    protected $with = ['category', 'store', 'images', 'variants'];
 
     /**
      * The accessors to append to the model's array form.
@@ -35,17 +35,21 @@ class Campaign extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
-        'church_id',
+        'store_id',
         'category_id',
+        'sku',
         'name',
-        'introduction',
-        'campaign_content',
-        'donation_content',
-        'logo_image',
-        'banner_image',
+        'description',
+        'slug',
+        'weight',
+        'weight_unit',
+        'length',
+        'width',
+        'height',
+        'dimension_unit',
         'status',
     ];
 
@@ -55,7 +59,7 @@ class Campaign extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'church_id',
+        'store_id',
         'category_id',
         'deleted_at',
     ];
@@ -67,14 +71,24 @@ class Campaign extends Model
      */
     protected $casts = [];
 
-    public function church()
+    public function store()
     {
-        return $this->belongsTo(Church::class);
+        return $this->belongsTo(Store::class);
     }
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class);
     }
 
 }
