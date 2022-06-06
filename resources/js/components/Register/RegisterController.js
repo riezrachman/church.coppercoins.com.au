@@ -1,12 +1,20 @@
-class RegisterController {
-    const [stepIndex, setStepIndex] = useState(0);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+import { createState } from "@hookstate/core";
 
-    const [obscurePassword, setObscurePassword] = useState(true);
+export const stepIndexState = createState(0);
 
-    const [loading, setLoading] = useState(false);
-    const [validation, setValidation] = useState([]);
+export const emailState = createState("sadasd@gmail.com");
+export const passwordState = createState("");
 
-    const navigate = useNavigate();
-};
+export const churchNameState = createState("");
+export const churchAddressState = createState("");
+export const churchCityState = createState("");
+export const churchStateState = createState("");
+export const churchPostalCodeState = createState("");
+export const churchCountryState = createState("");
+
+export const bankState = createState("");
+export const bankUsernameState = createState("");
+export const bankPasswordState = createState("");
+
+export const nameState = createState("");
+export const phoneState = createState("");
