@@ -1,0 +1,72 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const ProfileComponent = () => {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const fetchProfile = async () => {
+        try {
+            setLoading(true);
+            const apiUrl = process.env.MIX_MAIN_APP_URL;
+            const token = localStorage.getItem("token");
+            const response = await axios.get(`${apiUrl}/api/auth/profile`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response);
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+            var message = "Oops! Something went wrong...";
+            if (error.response) {
+                console.log(error.response);
+                message = error.response.data.message;
+            } else {
+                console.log(error);
+            }
+            setError({
+                message: message,
+                status: false,
+                data: null,
+            });
+        }
+    };
+    useEffect(() => {
+        fetchProfile();
+    }, []);
+    return loading ? (
+        <></>
+    ) : (
+        <div className="border bg-white rounded-lg p-4 flex space-x-2">
+            <img
+                className="rounded-lg object-cover object-center h-24 aspect-square"
+                src="/images/placeholder.png"
+                alt=""
+            />
+            <div className="flex flex-col space-y-2">
+                <div className="text-xl font-bold">Church Name</div>
+                <div className="grid grid-cols-3 gap-4">
+                    <div>
+                        <small className="text-xs font-thin">Website</small>
+                        <div>coppercoins.com</div>
+                    </div>
+                    <div>
+                        <small className="text-xs font-thin">
+                            Phone Number
+                        </small>
+                        <div>(980) 378-0377</div>
+                    </div>
+                    <div>
+                        <small className="text-xs font-thin">
+                            Australian Business Number
+                        </small>
+                        <div>1234567890</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default ProfileComponent;
