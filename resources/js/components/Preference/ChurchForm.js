@@ -29,10 +29,10 @@ const ChurchForm = () => {
                 console.log(response.data.data);
                 const data = response.data.data;
                 setChurchName(data.name);
-                setChurchAddress("");
-                setChurchCity("");
-                setChurchPostalCode("");
-                setChurchCountry("");
+                setChurchAddress(data.address.address);
+                setChurchCity(data.address.city);
+                setChurchPostalCode(data.address.postal_code);
+                setChurchCountry(data.address.country);
                 setName(data.user.name);
                 setEmail(data.user.email);
                 setPhone(data.user.profile.phone);
