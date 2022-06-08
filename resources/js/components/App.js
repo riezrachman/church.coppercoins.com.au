@@ -9,6 +9,8 @@ import Finance from "../pages/Finance";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
+import Preference from "../pages/Preference";
+import Material from "../pages/Material";
 
 const App = () => {
     return (
@@ -35,6 +37,22 @@ const App = () => {
                     element={
                         <Protected>
                             <Finance />
+                        </Protected>
+                    }
+                />
+                <Route
+                    path="/preference"
+                    element={
+                        <Protected>
+                            <Preference />
+                        </Protected>
+                    }
+                />
+                <Route
+                    path="/material"
+                    element={
+                        <Protected>
+                            <Material />
                         </Protected>
                     }
                 />
