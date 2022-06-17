@@ -9643,7 +9643,7 @@ var ProfileComponent = function ProfileComponent() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/auth/profile"), {
@@ -9817,7 +9817,7 @@ var Navbar = function Navbar() {
               _context.prev = 0;
               e.preventDefault();
               formData = new FormData();
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(apiUrl, "/api/auth/sign-out"), formData);
 
@@ -10064,7 +10064,7 @@ var ChurchForm = function ChurchForm() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/church/me"), {
@@ -10080,10 +10080,10 @@ var ChurchForm = function ChurchForm() {
                 console.log(response.data.data);
                 data = response.data.data;
                 setChurchName(data.name);
-                setChurchAddress("");
-                setChurchCity("");
-                setChurchPostalCode("");
-                setChurchCountry("");
+                setChurchAddress(data.address.address);
+                setChurchCity(data.address.city);
+                setChurchPostalCode(data.address.postal_code);
+                setChurchCountry(data.address.country);
                 setName(data.user.name);
                 setEmail(data.user.email);
                 setPhone(data.user.profile.phone);
@@ -10648,7 +10648,7 @@ var Agreement = function Agreement() {
               formData.append("church[state]", churchState.get());
               formData.append("church[country]", churchCountry.get());
               formData.append("church[postal_code]", churchPostalCode.get());
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               _context.next = 18;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-up"), formData);
 
@@ -10695,7 +10695,7 @@ var Agreement = function Agreement() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "grid grid-cols-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "bg-[url('/images/bg_login.png')] bg-center bg-cover h-screen p-12 space-y-4",
+      className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
         className: "h-12",
         src: "/images/logo_full.png",
@@ -10900,7 +10900,7 @@ var BankAccount = function BankAccount() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(apiUrl, "/api/bank-institution"), {
@@ -10961,7 +10961,7 @@ var BankAccount = function BankAccount() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "grid grid-cols-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "bg-[url('/images/bg_login.png')] bg-center bg-cover h-screen p-12 space-y-4",
+      className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
         className: "h-12",
         src: "/images/logo_full.png",
@@ -11094,7 +11094,7 @@ var ChurchProfile = function ChurchProfile() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "grid grid-cols-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "bg-[url('/images/bg_login.png')] bg-center bg-cover h-screen p-12 space-y-4",
+      className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
         className: "h-12",
         src: "/images/logo_full.png",
@@ -11246,7 +11246,7 @@ var ContactPerson = function ContactPerson() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "grid grid-cols-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "bg-[url('/images/bg_login.png')] bg-center bg-cover h-screen p-12 space-y-4",
+      className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
         className: "h-12",
         src: "/images/logo_full.png",
@@ -11620,7 +11620,7 @@ var Verification = function Verification() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "grid grid-cols-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "bg-[url('/images/bg_login.png')] bg-center bg-cover h-screen p-12 space-y-4",
+      className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
         className: "h-12",
         src: "/images/logo_full.png",
@@ -11899,7 +11899,7 @@ var CampaignManagement = function CampaignManagement() {
                 formData.append("banner_image", bannerImage);
               }
 
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 13;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/campaign"), formData, {
@@ -11957,7 +11957,7 @@ var CampaignManagement = function CampaignManagement() {
             case 0:
               _context2.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context2.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/campaign/null"), {
@@ -12345,7 +12345,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Finance = function Finance() {
-  var apiUrl = "http://localhost:3000";
+  var apiUrl = "https://coppercoins.com.au";
   var token = localStorage.getItem("token");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -12536,7 +12536,7 @@ var Login = function Login() {
               formData = new FormData();
               formData.append("email", email);
               formData.append("password", password);
-              apiUrl = "http://localhost:3000";
+              apiUrl = "https://coppercoins.com.au";
               _context.next = 9;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-in"), formData);
 
@@ -12729,7 +12729,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Material = function Material() {
-  var apiUrl = "http://localhost:3000";
+  var apiUrl = "https://coppercoins.com.au";
   var token = localStorage.getItem("token");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
