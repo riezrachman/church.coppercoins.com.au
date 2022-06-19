@@ -1,6 +1,6 @@
 import { createState } from "@hookstate/core";
 
-export const stepIndexState = createState(1);
+export const stepIndexState = createState(0);
 
 export const emailState = createState("");
 export const passwordState = createState("");

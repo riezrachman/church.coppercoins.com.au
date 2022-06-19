@@ -1076,6 +1076,9 @@ input:checked + .toggle-bg {
 .h-56 {
   height: 14rem;
 }
+.min-h-screen {
+  min-height: 100vh;
+}
 .w-4 {
   width: 1rem;
 }
@@ -1396,6 +1399,9 @@ input:checked + .toggle-bg {
 .bg-cover {
   background-size: cover;
 }
+.bg-fixed {
+  background-attachment: fixed;
+}
 .bg-center {
   background-position: center;
 }
@@ -1473,6 +1479,10 @@ input:checked + .toggle-bg {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 .pr-4 {
   padding-right: 1rem;

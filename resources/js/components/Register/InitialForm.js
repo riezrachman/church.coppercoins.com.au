@@ -53,128 +53,132 @@ const InitialForm = () => {
     };
 
     return (
-        <div
-            key={0}
-            className="bg-[url('/images/bg_login.png')] bg-center bg-cover w-screen h-screen"
-        >
-            <div className="container mx-auto grid grid-cols-2 h-full items-center">
-                <form onSubmit={handleValidateEmail}>
-                    <div className="bg-white rounded-lg w-full p-12 space-y-4">
-                        <img
-                            className="h-12"
-                            src="/images/logo_full.png"
-                            alt=""
-                        />
-                        <div>
-                            <div className="text-3xl font-bold">
-                                Church Portal
-                            </div>
-                            <div className="text-gray-500 font-light">
-                                Welcome to CopperCoins portal, mauris neque
-                                nisi, faucibus non elementum in, convallis et
-                                eros.
-                            </div>
-                        </div>
-                        {errorMessage.get() != "" && (
-                            <div
-                                className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                                role="alert"
-                            >
-                                {errorMessage.get()}
-                            </div>
-                        )}
-                        <div>
-                            <Label htmlFor="email">Email</Label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="form-control"
-                                value={email.get()}
-                                onChange={(e) => email.set(e.target.value)}
-                                placeholder="user@mail.com"
-                                minLength={6}
-                                maxLength={255}
-                                required
+        <div className="h-screen w-screen">
+            <div
+                key={0}
+                className="bg-[url('/images/bg_login.png')] bg-no-repeat bg-cover bg-center bg-fixed min-h-screen py-16"
+            >
+                <div className="container mx-auto grid grid-cols-2 h-full items-center">
+                    <form onSubmit={handleValidateEmail}>
+                        <div className="bg-white rounded-lg w-full p-12 space-y-4">
+                            <img
+                                className="h-12"
+                                src="/images/logo_full.png"
+                                alt=""
                             />
-                        </div>
-                        <div>
-                            <Label htmlFor="password">Password</Label>
-                            <div className="relative">
+                            <div>
+                                <div className="text-3xl font-bold">
+                                    Church Portal
+                                </div>
+                                <div className="text-gray-500 font-light">
+                                    Welcome to CopperCoins portal, mauris neque
+                                    nisi, faucibus non elementum in, convallis
+                                    et eros.
+                                </div>
+                            </div>
+                            {errorMessage.get() != "" && (
+                                <div
+                                    className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                                    role="alert"
+                                >
+                                    {errorMessage.get()}
+                                </div>
+                            )}
+                            <div>
+                                <Label htmlFor="email">Email</Label>
                                 <input
-                                    type={
-                                        obscurePassword.get()
-                                            ? "password"
-                                            : "text"
-                                    }
-                                    id="password"
+                                    type="email"
+                                    id="email"
                                     className="form-control"
-                                    value={password.get()}
-                                    onChange={(e) =>
-                                        password.set(e.target.value)
-                                    }
-                                    placeholder={
-                                        obscurePassword.get()
-                                            ? "**********"
-                                            : "Password"
-                                    }
-                                    minLength={8}
+                                    value={email.get()}
+                                    onChange={(e) => email.set(e.target.value)}
+                                    placeholder="user@mail.com"
+                                    minLength={6}
                                     maxLength={255}
                                     required
                                 />
-                                <button
-                                    type="button"
-                                    className="text-amber-500 text-xs font-medium absolute right-3.5 bottom-3.5"
-                                    onClick={() =>
-                                        obscurePassword.set(
-                                            !obscurePassword.get()
-                                        )
-                                    }
-                                >
-                                    {obscurePassword.get() ? "Show" : "Hide"}
-                                </button>
                             </div>
-                            <small className="text-gray-500">
-                                *Please use 8 or more characters with a mix
-                                uppercase, lowercase and numbers
-                            </small>
+                            <div>
+                                <Label htmlFor="password">Password</Label>
+                                <div className="relative">
+                                    <input
+                                        type={
+                                            obscurePassword.get()
+                                                ? "password"
+                                                : "text"
+                                        }
+                                        id="password"
+                                        className="form-control"
+                                        value={password.get()}
+                                        onChange={(e) =>
+                                            password.set(e.target.value)
+                                        }
+                                        placeholder={
+                                            obscurePassword.get()
+                                                ? "**********"
+                                                : "Password"
+                                        }
+                                        minLength={8}
+                                        maxLength={255}
+                                        required
+                                    />
+                                    <button
+                                        type="button"
+                                        className="text-amber-500 text-xs font-medium absolute right-3.5 bottom-3.5"
+                                        onClick={() =>
+                                            obscurePassword.set(
+                                                !obscurePassword.get()
+                                            )
+                                        }
+                                    >
+                                        {obscurePassword.get()
+                                            ? "Show"
+                                            : "Hide"}
+                                    </button>
+                                </div>
+                                <small className="text-gray-500">
+                                    *Please use 8 or more characters with a mix
+                                    uppercase, lowercase and numbers
+                                </small>
+                            </div>
+                            <div className="text-gray-500 font-light">
+                                By clicking “Create Account”, you agree to our{" "}
+                                <NavLink
+                                    to={``}
+                                    className="text-amber-500 font-medium"
+                                >
+                                    Terms of Use
+                                </NavLink>{" "}
+                                and{" "}
+                                <NavLink
+                                    to={``}
+                                    className="text-amber-500 font-medium"
+                                >
+                                    Privacy Policy
+                                </NavLink>
+                            </div>
+                            {loading.get() ? (
+                                <LoadingButton className="btn btn-primary w-full" />
+                            ) : (
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary w-full"
+                                >
+                                    Register
+                                </button>
+                            )}
+                            <div>
+                                Already have a church account? Please{" "}
+                                <Link
+                                    to={`/sign-in`}
+                                    className="text-amber-500 font-medium"
+                                >
+                                    login here
+                                </Link>
+                            </div>
                         </div>
-                        <div className="text-gray-500 font-light">
-                            By clicking “Create Account”, you agree to our{" "}
-                            <NavLink
-                                to={``}
-                                className="text-amber-500 font-medium"
-                            >
-                                Terms of Use
-                            </NavLink>{" "}
-                            and{" "}
-                            <NavLink
-                                to={``}
-                                className="text-amber-500 font-medium"
-                            >
-                                Privacy Policy
-                            </NavLink>
-                        </div>
-                        {loading.get() ? (
-                            <LoadingButton className="btn btn-primary w-full" />
-                        ) : (
-                            <button
-                                type="submit"
-                                className="btn btn-primary w-full"
-                            >
-                                Register
-                            </button>
-                        )}
-                        <div>
-                            Already have a church account? Please{" "}
-                            <Link
-                                to={`/sign-in`}
-                                className="text-amber-500 font-medium"
-                            >
-                                login here
-                            </Link>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );
