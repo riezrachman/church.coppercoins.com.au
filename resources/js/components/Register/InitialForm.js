@@ -1,12 +1,15 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { createState, useState } from "@hookstate/core";
+import axios from "axios";
 
 import {
     stepIndexState,
     emailState,
     passwordState,
 } from "./RegisterController";
+import LoadingButton from "../LoadingButton";
+import Label from "../Label";
 
 const InitialForm = () => {
     const stepIndex = useState(stepIndexState);
@@ -16,6 +19,38 @@ const InitialForm = () => {
 
     const obscurePasswordState = createState(true);
     const obscurePassword = useState(obscurePasswordState);
+    const loadingState = createState(false);
+    const loading = useState(loadingState);
+    const errorState = createState("");
+    const errorMessage = useState(errorState);
+
+    const handleValidateEmail = async (e) => {
+        e.preventDefault();
+        try {
+            loading.set(true);
+            const formData = new FormData();
+            formData.append("email", email.get());
+            const apiUrl = process.env.MIX_MAIN_APP_URL;
+            const response = await axios.post(
+                `${apiUrl}/api/auth/validate-email`,
+                formData
+            );
+            loading.set(false);
+            if (response.status == 200) {
+                stepIndex.set(stepIndex.get() + 1);
+            }
+        } catch (error) {
+            loading.set(false);
+            var message = "Oops! Something went wrong...";
+            if (error.response) {
+                console.log(error.response);
+                message = error.response.data.message;
+            } else {
+                console.log(error);
+            }
+            errorMessage.set(message);
+        }
+    };
 
     return (
         <div
@@ -23,7 +58,7 @@ const InitialForm = () => {
             className="bg-[url('/images/bg_login.png')] bg-center bg-cover w-screen h-screen"
         >
             <div className="container mx-auto grid grid-cols-2 h-full items-center">
-                <form onSubmit={() => stepIndex.set(stepIndex.get() + 1)}>
+                <form onSubmit={handleValidateEmail}>
                     <div className="bg-white rounded-lg w-full p-12 space-y-4">
                         <img
                             className="h-12"
@@ -34,36 +69,36 @@ const InitialForm = () => {
                             <div className="text-3xl font-bold">
                                 Church Portal
                             </div>
-                            <div className="">
+                            <div className="text-gray-500 font-light">
                                 Welcome to CopperCoins portal, mauris neque
                                 nisi, faucibus non elementum in, convallis et
                                 eros.
                             </div>
                         </div>
-                        <div>
-                            <label
-                                htmlFor="email"
-                                className="block mb-2 text-sm font-medium text-gray-900"
+                        {errorMessage.get() != "" && (
+                            <div
+                                className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                                role="alert"
                             >
-                                Email
-                            </label>
+                                {errorMessage.get()}
+                            </div>
+                        )}
+                        <div>
+                            <Label htmlFor="email">Email</Label>
                             <input
                                 type="email"
                                 id="email"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                                className="form-control"
                                 value={email.get()}
                                 onChange={(e) => email.set(e.target.value)}
                                 placeholder="user@mail.com"
+                                minLength={6}
+                                maxLength={255}
                                 required
                             />
                         </div>
                         <div>
-                            <label
-                                htmlFor="password"
-                                className="block mb-2 text-sm font-medium text-gray-900"
-                            >
-                                Password
-                            </label>
+                            <Label htmlFor="password">Password</Label>
                             <div className="relative">
                                 <input
                                     type={
@@ -72,7 +107,7 @@ const InitialForm = () => {
                                             : "text"
                                     }
                                     id="password"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                                    className="form-control"
                                     value={password.get()}
                                     onChange={(e) =>
                                         password.set(e.target.value)
@@ -82,11 +117,13 @@ const InitialForm = () => {
                                             ? "**********"
                                             : "Password"
                                     }
+                                    minLength={8}
+                                    maxLength={255}
                                     required
                                 />
                                 <button
                                     type="button"
-                                    className="text-amber-500 font-medium absolute right-2.5 bottom-2.5"
+                                    className="text-amber-500 text-xs font-medium absolute right-3.5 bottom-3.5"
                                     onClick={() =>
                                         obscurePassword.set(
                                             !obscurePassword.get()
@@ -96,12 +133,12 @@ const InitialForm = () => {
                                     {obscurePassword.get() ? "Show" : "Hide"}
                                 </button>
                             </div>
-                            <small className="text-neutral-500">
+                            <small className="text-gray-500">
                                 *Please use 8 or more characters with a mix
                                 uppercase, lowercase and numbers
                             </small>
                         </div>
-                        <div>
+                        <div className="text-gray-500 font-light">
                             By clicking “Create Account”, you agree to our{" "}
                             <NavLink
                                 to={``}
@@ -117,12 +154,16 @@ const InitialForm = () => {
                                 Privacy Policy
                             </NavLink>
                         </div>
-                        <button
-                            type="submit"
-                            className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 w-full duration-300"
-                        >
-                            Register
-                        </button>
+                        {loading.get() ? (
+                            <LoadingButton className="btn btn-primary w-full" />
+                        ) : (
+                            <button
+                                type="submit"
+                                className="btn btn-primary w-full"
+                            >
+                                Register
+                            </button>
+                        )}
                         <div>
                             Already have a church account? Please{" "}
                             <Link

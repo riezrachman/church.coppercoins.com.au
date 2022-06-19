@@ -11,6 +11,7 @@ import {
     churchPostalCodeState,
     churchCountryState,
 } from "./RegisterController";
+import Label from "../Label";
 
 const ChurchProfile = () => {
     const stepIndex = useState(stepIndexState);
@@ -22,114 +23,99 @@ const ChurchProfile = () => {
     const churchCountry = useState(churchCountryState);
 
     return (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-3">
             <div className="bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4">
                 <img className="h-12" src="/images/logo_full.png" alt="" />
-                <div className="">
+                <div className="text-gray-500 font-light">
                     Be part of us, mauris neque nisi faucibus non elementum in,
                     convallis et eros.
                 </div>
                 <Steps currentIndex={stepIndex.get()} />
             </div>
-            <form onSubmit={() => stepIndex.set(stepIndex.get() + 1)}>
-                <div className="bg-white p-12 flex flex-col space-y-4">
+            <form
+                onSubmit={() => stepIndex.set(stepIndex.get() + 1)}
+                className="col-span-2"
+            >
+                <div className="bg-white py-12 px-56 flex flex-col space-y-4">
                     <div className="text-3xl font-bold">Church Profile</div>
                     <div>
-                        <label
-                            htmlFor="name"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Church Name
-                        </label>
+                        <Label htmlFor="name">Church Name</Label>
                         <input
                             type="text"
                             id="name"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                            className="form-control"
                             value={churchName.get()}
                             onChange={(e) => churchName.set(e.target.value)}
                             placeholder="Church Name"
+                            minLength={6}
+                            maxLength={255}
                             required
                         />
                     </div>
                     <div>
-                        <label
-                            htmlFor="address"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Church Address
-                        </label>
-                        <textarea
+                        <Label htmlFor="address">Church Address</Label>
+                        <input
                             type="text"
                             id="address"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                            className="form-control"
                             value={churchAddress.get()}
                             onChange={(e) => churchAddress.set(e.target.value)}
                             placeholder="Church Address"
+                            minLength={6}
+                            maxLength={255}
                             required
                         />
                     </div>
                     <div className="grid grid-cols-3 gap-4">
                         <div>
-                            <label
-                                htmlFor="city"
-                                className="block mb-2 text-sm font-medium text-gray-900"
-                            >
-                                City
-                            </label>
+                            <Label htmlFor="city">City</Label>
                             <input
                                 type="text"
                                 id="city"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                                className="form-control"
                                 value={churchCity.get()}
                                 onChange={(e) => churchCity.set(e.target.value)}
-                                placeholder="Church Address"
+                                placeholder="City"
+                                minLength={6}
+                                maxLength={255}
                                 required
                             />
                         </div>
                         <div>
-                            <label
-                                htmlFor="postal_code"
-                                className="block mb-2 text-sm font-medium text-gray-900"
-                            >
-                                ZIP Code
-                            </label>
+                            <Label htmlFor="postal_code">ZIP Code</Label>
                             <input
                                 type="number"
                                 id="postal_code"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                                className="form-control"
                                 value={churchPostalCode.get()}
                                 onChange={(e) =>
                                     churchPostalCode.set(e.target.value)
                                 }
-                                placeholder="Church Address"
+                                placeholder="Postal Code"
+                                minLength={6}
+                                maxLength={6}
                                 required
                             />
                         </div>
                         <div>
-                            <label
-                                htmlFor="country"
-                                className="block mb-2 text-sm font-medium text-gray-900"
-                            >
-                                Country
-                            </label>
+                            <Label htmlFor="country">Country</Label>
                             <input
                                 type="text"
                                 id="country"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                                className="form-control"
                                 value={churchCountry.get()}
                                 onChange={(e) =>
                                     churchCountry.set(e.target.value)
                                 }
-                                placeholder="Church Address"
+                                placeholder="Country"
+                                minLength={6}
+                                maxLength={255}
                                 required
                             />
                         </div>
                     </div>
                     <div className="place-self-end">
-                        <button
-                            type="submit"
-                            className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 duration-300"
-                        >
+                        <button type="submit" className="btn btn-primary">
                             Next
                         </button>
                     </div>

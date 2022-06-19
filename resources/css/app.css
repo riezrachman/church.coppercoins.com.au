@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply text-white text-sm font-medium rounded-lg px-5 py-2.5 duration-300;
+    }
+    .btn.btn-primary {
+        @apply disabled:bg-gray-300 bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300;
+    }
+    .form-control {
+        @apply text-gray-900 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:border-amber-500 focus:ring-amber-500 w-full p-2.5;
+    }
+}

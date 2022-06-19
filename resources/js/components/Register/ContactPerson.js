@@ -9,6 +9,7 @@ import {
     emailState,
     phoneState,
 } from "./RegisterController";
+import Label from "../Label";
 
 const ContactPerson = () => {
     const stepIndex = useState(stepIndexState);
@@ -18,66 +19,60 @@ const ContactPerson = () => {
     const phone = useState(phoneState);
 
     return (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-3">
             <div className="bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4">
                 <img className="h-12" src="/images/logo_full.png" alt="" />
-                <div className="">
+                <div className="text-gray-500 font-light">
                     Be part of us, mauris neque nisi faucibus non elementum in,
                     convallis et eros.
                 </div>
                 <Steps currentIndex={stepIndex.get()} />
             </div>
-            <form onSubmit={() => stepIndex.set(stepIndex.get() + 1)}>
-                <div className="bg-white p-12 flex flex-col space-y-4">
+            <form
+                onSubmit={() => stepIndex.set(stepIndex.get() + 1)}
+                className="col-span-2"
+            >
+                <div className="bg-white py-12 px-56 flex flex-col space-y-4">
                     <div className="text-3xl font-bold">Contact Person</div>
                     <div>
-                        <label
-                            htmlFor="name"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Full Name
-                        </label>
+                        <Label htmlFor="name">Full Name</Label>
                         <input
                             type="text"
                             id="name"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                            className="form-control"
                             value={name.get()}
                             onChange={(e) => name.set(e.target.value)}
                             placeholder="Full Name"
+                            minLength="6"
+                            maxLength="255"
                             required
                         />
                     </div>
                     <div>
-                        <label
-                            htmlFor="email"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Email Address
-                        </label>
+                        <Label htmlFor="email">Email Address</Label>
                         <input
                             type="email"
                             id="email"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                            className="form-control"
                             value={email.get()}
                             onChange={(e) => email.set(e.target.value)}
                             placeholder="Email"
+                            minLength="6"
+                            maxLength="255"
                             disabled
                         />
                     </div>
                     <div>
-                        <label
-                            htmlFor="phone"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Phone Number
-                        </label>
+                        <Label htmlFor="phone">Phone Number</Label>
                         <input
                             type="number"
                             id="phone"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                            className="form-control"
                             value={phone.get()}
                             onChange={(e) => phone.set(e.target.value)}
                             placeholder="Phone Number"
+                            minLength="6"
+                            maxLength="255"
                             required
                         />
                     </div>
@@ -89,10 +84,7 @@ const ContactPerson = () => {
                         >
                             Previous
                         </a>
-                        <button
-                            type="submit"
-                            className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 duration-300"
-                        >
+                        <button type="submit" className="btn btn-primary">
                             Next
                         </button>
                     </div>

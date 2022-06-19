@@ -1,8 +1,8 @@
 import { createState } from "@hookstate/core";
 
-export const stepIndexState = createState(0);
+export const stepIndexState = createState(1);
 
-export const emailState = createState("sadasd@gmail.com");
+export const emailState = createState("");
 export const passwordState = createState("");
 
 export const churchNameState = createState("");
@@ -13,8 +13,9 @@ export const churchPostalCodeState = createState("");
 export const churchCountryState = createState("");
 
 export const bankState = createState("");
-export const bankUsernameState = createState("");
-export const bankPasswordState = createState("");
+export const bankAccountNameState = createState("");
+export const bankAccountNumberState = createState("");
+export const bankBSBNumberState = createState("");
 
 export const nameState = createState("");
 export const phoneState = createState("");

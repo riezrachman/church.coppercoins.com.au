@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
-import { createState, useState } from "@hookstate/core";
+import { useState } from "@hookstate/core";
 import axios from "axios";
-import Select from "react-select";
 
 import Steps from "./Steps";
 
 import {
     stepIndexState,
     bankState,
-    bankUsernameState,
-    bankPasswordState,
+    bankAccountNameState,
+    bankAccountNumberState,
+    bankBSBNumberState,
 } from "./RegisterController";
+import Label from "../Label";
+import LoadingButton from "../LoadingButton";
 
 const BankAccount = () => {
     const stepIndex = useState(stepIndexState);
@@ -18,11 +20,9 @@ const BankAccount = () => {
     const [bankOption, setBankOption] = React.useState([]);
 
     const bank = useState(bankState);
-    const bankUsername = useState(bankUsernameState);
-    const bankPassword = useState(bankPasswordState);
-
-    const obscurePasswordState = createState(true);
-    const obscurePassword = useState(obscurePasswordState);
+    const bankAccountName = useState(bankAccountNameState);
+    const bankAccountNumber = useState(bankAccountNumberState);
+    const bankBSBNumber = useState(bankBSBNumberState);
 
     const [loading, setLoading] = React.useState(false);
 
@@ -65,84 +65,86 @@ const BankAccount = () => {
     }, []);
 
     return (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-3">
             <div className="bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4">
                 <img className="h-12" src="/images/logo_full.png" alt="" />
-                <div className="">
+                <div className="text-gray-500 font-light">
                     Be part of us, mauris neque nisi faucibus non elementum in,
                     convallis et eros.
                 </div>
                 <Steps currentIndex={stepIndex.get()} />
             </div>
-            <form onSubmit={() => stepIndex.set(stepIndex.get() + 1)}>
-                <div className="bg-white p-12 flex flex-col space-y-4">
+            <form
+                onSubmit={() => stepIndex.set(stepIndex.get() + 1)}
+                className="col-span-2"
+            >
+                <div className="bg-white py-12 px-56 flex flex-col space-y-4">
                     <div className="text-3xl font-bold">Bank Account</div>
                     <div>
-                        <label
-                            htmlFor="bank"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Bank
-                        </label>
-                        <Select
-                            options={bankOption}
+                        <Label htmlFor="bank">Bank</Label>
+                        <select
+                            className="form-control"
                             value={bank.get()}
-                            onChange={(e) => bank.set(e)}
-                            isLoading={loading}
-                        />
+                            onChange={(e) => bank.set(e.target.value)}
+                            required
+                        >
+                            <option>-- Select Bank --</option>
+                            {bankOption.map((e) => {
+                                return (
+                                    <option key={e.value} value={e.value}>
+                                        {e.label}
+                                    </option>
+                                );
+                            })}
+                        </select>
                     </div>
                     <div>
-                        <label
-                            htmlFor="username"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Username
-                        </label>
+                        <Label htmlFor="bank_account_name">Account Name</Label>
                         <input
                             type="text"
-                            id="username"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-                            value={bankUsername.get()}
-                            onChange={(e) => bankUsername.set(e.target.value)}
-                            placeholder="Username"
+                            id="bank_account_name"
+                            className="form-control"
+                            value={bankAccountName.get()}
+                            onChange={(e) =>
+                                bankAccountName.set(e.target.value)
+                            }
+                            placeholder="Account Name"
+                            minLength="6"
+                            maxLength="255"
                             required
                         />
                     </div>
                     <div>
-                        <label
-                            htmlFor="password"
-                            className="block mb-2 text-sm font-medium text-gray-900"
-                        >
-                            Password
-                        </label>
-                        <div className="relative">
-                            <input
-                                type={
-                                    obscurePassword.get() ? "password" : "text"
-                                }
-                                id="password"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-                                value={bankPassword.get()}
-                                onChange={(e) =>
-                                    bankPassword.set(e.target.value)
-                                }
-                                placeholder={
-                                    obscurePassword.get()
-                                        ? "**********"
-                                        : "Password"
-                                }
-                                required
-                            />
-                            <button
-                                type="button"
-                                className="text-amber-500 font-medium absolute right-2.5 bottom-2.5"
-                                onClick={() =>
-                                    obscurePassword.set(!obscurePassword.get())
-                                }
-                            >
-                                {obscurePassword.get() ? "Show" : "Hide"}
-                            </button>
-                        </div>
+                        <Label htmlFor="bank_account_number">
+                            Account Number
+                        </Label>
+                        <input
+                            type="number"
+                            id="bank_account_number"
+                            className="form-control"
+                            value={bankAccountNumber.get()}
+                            onChange={(e) =>
+                                bankAccountNumber.set(e.target.value)
+                            }
+                            placeholder="Account Number"
+                            minLength="6"
+                            maxLength="255"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor="bank_bsb_number">BSB Number</Label>
+                        <input
+                            type="number"
+                            id="bank_bsb_number"
+                            className="form-control"
+                            value={bankBSBNumber.get()}
+                            onChange={(e) => bankBSBNumber.set(e.target.value)}
+                            placeholder="BSB Number"
+                            minLength="6"
+                            maxLength="255"
+                            required
+                        />
                     </div>
                     <div className="flex justify-between items-center">
                         <a
@@ -152,12 +154,13 @@ const BankAccount = () => {
                         >
                             Previous
                         </a>
-                        <button
-                            type="submit"
-                            className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 duration-300"
-                        >
-                            Next
-                        </button>
+                        {loading ? (
+                            <LoadingButton className="btn btn-primary" />
+                        ) : (
+                            <button type="submit" className="btn btn-primary">
+                                Next
+                            </button>
+                        )}
                     </div>
                 </div>
             </form>
