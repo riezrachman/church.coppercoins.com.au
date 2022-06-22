@@ -67,7 +67,9 @@ const BankAccount = () => {
     return (
         <div className="grid grid-cols-3">
             <div className="bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4">
-                <img className="h-12" src="/images/logo_full.png" alt="" />
+                <a href={process.env.MIX_MAIN_APP_URL}>
+                    <img className="h-12" src="/images/logo_full.png" alt="" />
+                </a>
                 <div className="text-gray-500 font-light">
                     Be part of us, mauris neque nisi faucibus non elementum in,
                     convallis et eros.

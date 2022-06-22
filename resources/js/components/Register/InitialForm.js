@@ -61,11 +61,13 @@ const InitialForm = () => {
                 <div className="container mx-auto grid grid-cols-2 h-full items-center">
                     <form onSubmit={handleValidateEmail}>
                         <div className="bg-white rounded-lg w-full p-12 space-y-4">
-                            <img
-                                className="h-12"
-                                src="/images/logo_full.png"
-                                alt=""
-                            />
+                            <a href={process.env.MIX_MAIN_APP_URL}>
+                                <img
+                                    className="h-12"
+                                    src="/images/logo_full.png"
+                                    alt=""
+                                />
+                            </a>
                             <div>
                                 <div className="text-3xl font-bold">
                                     Church Portal
