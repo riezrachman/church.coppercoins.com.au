@@ -76,12 +76,14 @@ const CampaignManagement = () => {
                 },
             });
             if (response.status == 200) {
-                console.log(response.data.data);
-                setBannerImagePreview(response.data.data.banner_image);
-                setName(response.data.data.name);
-                setIntroduction(response.data.data.introduction);
-                setCampaignContent(response.data.data.campaign_content);
-                setDonationContent(response.data.data.donation_content);
+                console.log(response.data);
+                if (response.data.data) {
+                    setBannerImagePreview(response.data.data.banner_image);
+                    setName(response.data.data.name);
+                    setIntroduction(response.data.data.introduction);
+                    setCampaignContent(response.data.data.campaign_content);
+                    setDonationContent(response.data.data.donation_content);
+                }
             }
             setLoading(false);
         } catch (error) {

@@ -37,7 +37,6 @@ const BankAccount = () => {
                 },
             });
             if (response.status == 200) {
-                console.log(response.data.data);
                 let data = response.data.data.map((e) => {
                     return {
                         value: e.id,

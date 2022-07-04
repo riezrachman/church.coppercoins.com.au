@@ -8,6 +8,7 @@ import {
     churchNameState,
     churchAddressState,
     churchCityState,
+    churchStateState,
     churchPostalCodeState,
     churchCountryState,
 } from "./RegisterController";
@@ -19,6 +20,7 @@ const ChurchProfile = () => {
     const churchName = useState(churchNameState);
     const churchAddress = useState(churchAddressState);
     const churchCity = useState(churchCityState);
+    const churchState = useState(churchStateState);
     const churchPostalCode = useState(churchPostalCodeState);
     const churchCountry = useState(churchCountryState);
 
@@ -68,7 +70,7 @@ const ChurchProfile = () => {
                             required
                         />
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-4 gap-4">
                         <div>
                             <Label htmlFor="city">City</Label>
                             <input
@@ -78,6 +80,22 @@ const ChurchProfile = () => {
                                 value={churchCity.get()}
                                 onChange={(e) => churchCity.set(e.target.value)}
                                 placeholder="City"
+                                minLength={6}
+                                maxLength={255}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <Label htmlFor="state">State</Label>
+                            <input
+                                type="text"
+                                id="state"
+                                className="form-control"
+                                value={churchState.get()}
+                                onChange={(e) =>
+                                    churchState.set(e.target.value)
+                                }
+                                placeholder="State"
                                 minLength={6}
                                 maxLength={255}
                                 required

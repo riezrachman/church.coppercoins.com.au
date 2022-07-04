@@ -9196,7 +9196,6 @@ var BankAccount = function BankAccount() {
               response = _context.sent;
 
               if (response.status == 200) {
-                console.log(response.data.data);
                 data = response.data.data.map(function (e) {
                   return {
                     value: e.id,
@@ -9396,6 +9395,7 @@ var ChurchProfile = function ChurchProfile() {
   var churchName = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_1__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_3__.churchNameState);
   var churchAddress = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_1__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_3__.churchAddressState);
   var churchCity = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_1__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_3__.churchCityState);
+  var churchState = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_1__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_3__.churchStateState);
   var churchPostalCode = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_1__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_3__.churchPostalCodeState);
   var churchCountry = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_1__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_3__.churchCountryState);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -9460,7 +9460,7 @@ var ChurchProfile = function ChurchProfile() {
             required: true
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "grid grid-cols-3 gap-4",
+          className: "grid grid-cols-4 gap-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
               htmlFor: "city",
@@ -9474,6 +9474,23 @@ var ChurchProfile = function ChurchProfile() {
                 return churchCity.set(e.target.value);
               },
               placeholder: "City",
+              minLength: 6,
+              maxLength: 255,
+              required: true
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              htmlFor: "state",
+              children: "State"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+              type: "text",
+              id: "state",
+              className: "form-control",
+              value: churchState.get(),
+              onChange: function onChange(e) {
+                return churchState.set(e.target.value);
+              },
+              placeholder: "State",
               minLength: 6,
               maxLength: 255,
               required: true
@@ -10390,12 +10407,15 @@ var CampaignManagement = function CampaignManagement() {
               response = _context2.sent;
 
               if (response.status == 200) {
-                console.log(response.data.data);
-                setBannerImagePreview(response.data.data.banner_image);
-                setName(response.data.data.name);
-                setIntroduction(response.data.data.introduction);
-                setCampaignContent(response.data.data.campaign_content);
-                setDonationContent(response.data.data.donation_content);
+                console.log(response.data);
+
+                if (response.data.data) {
+                  setBannerImagePreview(response.data.data.banner_image);
+                  setName(response.data.data.name);
+                  setIntroduction(response.data.data.introduction);
+                  setCampaignContent(response.data.data.campaign_content);
+                  setDonationContent(response.data.data.donation_content);
+                }
               }
 
               setLoading(false);
