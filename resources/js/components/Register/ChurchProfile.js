@@ -80,7 +80,6 @@ const ChurchProfile = () => {
                                 value={churchCity.get()}
                                 onChange={(e) => churchCity.set(e.target.value)}
                                 placeholder="City"
-                                minLength={6}
                                 maxLength={255}
                                 required
                             />
@@ -96,7 +95,6 @@ const ChurchProfile = () => {
                                     churchState.set(e.target.value)
                                 }
                                 placeholder="State"
-                                minLength={6}
                                 maxLength={255}
                                 required
                             />
@@ -128,7 +126,6 @@ const ChurchProfile = () => {
                                     churchCountry.set(e.target.value)
                                 }
                                 placeholder="Country"
-                                minLength={6}
                                 maxLength={255}
                                 required
                             />
