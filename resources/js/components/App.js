@@ -25,7 +25,7 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/campaign-management"
+                    path="/preference/campaign-management"
                     element={
                         <Protected>
                             <CampaignManagement />

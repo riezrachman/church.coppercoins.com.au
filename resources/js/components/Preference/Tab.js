@@ -20,6 +20,19 @@ const Tab = () => {
                 </li>
                 <li className="">
                     <a
+                        href="/preference/campaign-management"
+                        className={`inline-block p-4 rounded-t-lg border-b-2 ${
+                            location.pathname ==
+                            "/preference/campaign-management"
+                                ? "text-amber-500 border-amber-500"
+                                : "border-transparent"
+                        } hover:text-amber-600 hover:border-amber-600 duration-300`}
+                    >
+                        Campaign Management
+                    </a>
+                </li>
+                <li className="">
+                    <a
                         href="/preference/withdrawal-account"
                         className={`inline-block p-4 rounded-t-lg border-b-2 ${
                             location.pathname ==

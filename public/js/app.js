@@ -3063,46 +3063,6 @@ exports.aliases = aliases;
 
 /***/ }),
 
-/***/ "./node_modules/@fortawesome/free-solid-svg-icons/faChurch.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@fortawesome/free-solid-svg-icons/faChurch.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var prefix = 'fas';
-var iconName = 'church';
-var width = 640;
-var height = 512;
-var aliases = [9962];
-var unicode = 'f51d';
-var svgPathData = 'M344 48H376C389.3 48 400 58.75 400 72C400 85.25 389.3 96 376 96H344V142.4L456.7 210C471.2 218.7 480 234.3 480 251.2V512H384V416C384 380.7 355.3 352 320 352C284.7 352 256 380.7 256 416V512H160V251.2C160 234.3 168.8 218.7 183.3 210L296 142.4V96H264C250.7 96 240 85.25 240 72C240 58.75 250.7 48 264 48H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V48zM24.87 330.3L128 273.6V512H48C21.49 512 0 490.5 0 464V372.4C0 354.9 9.53 338.8 24.87 330.3V330.3zM592 512H512V273.6L615.1 330.3C630.5 338.8 640 354.9 640 372.4V464C640 490.5 618.5 512 592 512V512z';
-
-exports.definition = {
-  prefix: prefix,
-  iconName: iconName,
-  icon: [
-    width,
-    height,
-    aliases,
-    unicode,
-    svgPathData
-  ]};
-
-exports.faChurch = exports.definition;
-exports.prefix = prefix;
-exports.iconName = iconName;
-exports.width = width;
-exports.height = height;
-exports.ligatures = aliases;
-exports.unicode = unicode;
-exports.svgPathData = svgPathData;
-exports.aliases = aliases;
-
-/***/ }),
-
 /***/ "./node_modules/@fortawesome/free-solid-svg-icons/faCircleDollarToSlot.js":
 /*!********************************************************************************!*\
   !*** ./node_modules/@fortawesome/free-solid-svg-icons/faCircleDollarToSlot.js ***!
@@ -3206,46 +3166,6 @@ exports.ligatures = source.aliases;
 exports.unicode = source.unicode;
 exports.svgPathData = source.svgPathData;
 exports.aliases = source.aliases;
-
-/***/ }),
-
-/***/ "./node_modules/@fortawesome/free-solid-svg-icons/faFolder.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@fortawesome/free-solid-svg-icons/faFolder.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var prefix = 'fas';
-var iconName = 'folder';
-var width = 512;
-var height = 512;
-var aliases = [128447,61716,128193,"folder-blank"];
-var unicode = 'f07b';
-var svgPathData = 'M512 144v288c0 26.5-21.5 48-48 48h-416C21.5 480 0 458.5 0 432v-352C0 53.5 21.5 32 48 32h160l64 64h192C490.5 96 512 117.5 512 144z';
-
-exports.definition = {
-  prefix: prefix,
-  iconName: iconName,
-  icon: [
-    width,
-    height,
-    aliases,
-    unicode,
-    svgPathData
-  ]};
-
-exports.faFolder = exports.definition;
-exports.prefix = prefix;
-exports.iconName = iconName;
-exports.width = width;
-exports.height = height;
-exports.ligatures = aliases;
-exports.unicode = unicode;
-exports.svgPathData = svgPathData;
-exports.aliases = aliases;
 
 /***/ }),
 
@@ -7737,7 +7657,7 @@ var App = function App() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: "/campaign-management",
+        path: "/preference/campaign-management",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Protected__WEBPACK_IMPORTED_MODULE_2__["default"], {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_CampaignManagement__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         })
@@ -7819,15 +7739,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ProfileComponent = function ProfileComponent() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
-      loading = _useState2[0],
-      setLoading = _useState2[1];
+      data = _useState2[0],
+      setData = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
-      error = _useState4[0],
-      setError = _useState4[1];
+      loading = _useState4[0],
+      setLoading = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      error = _useState6[0],
+      setError = _useState6[1];
 
   var fetchProfile = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -7838,10 +7763,10 @@ var ProfileComponent = function ProfileComponent() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               token = localStorage.getItem("token");
               _context.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/auth/profile"), {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/church/me"), {
                 headers: {
                   Authorization: "Bearer ".concat(token)
                 }
@@ -7850,12 +7775,13 @@ var ProfileComponent = function ProfileComponent() {
             case 6:
               response = _context.sent;
               console.log(response);
+              setData(response.data.data);
               setLoading(false);
-              _context.next = 17;
+              _context.next = 18;
               break;
 
-            case 11:
-              _context.prev = 11;
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context["catch"](0);
               setLoading(false);
               message = "Oops! Something went wrong...";
@@ -7867,18 +7793,14 @@ var ProfileComponent = function ProfileComponent() {
                 console.log(_context.t0);
               }
 
-              setError({
-                message: message,
-                status: false,
-                data: null
-              });
+              setError(message);
 
-            case 17:
+            case 18:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 11]]);
+      }, _callee, null, [[0, 12]]);
     }));
 
     return function fetchProfile() {
@@ -7899,7 +7821,7 @@ var ProfileComponent = function ProfileComponent() {
       className: "flex flex-col space-y-2",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-xl font-bold",
-        children: "Church Name"
+        children: data ? data.name : "-"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "grid grid-cols-3 gap-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -7914,14 +7836,14 @@ var ProfileComponent = function ProfileComponent() {
             className: "text-xs font-thin",
             children: "Phone Number"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            children: "(980) 378-0377"
+            children: data ? data.user.profile.phone : "-"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("small", {
             className: "text-xs font-thin",
             children: "Australian Business Number"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            children: "1234567890"
+            children: data ? data.user.profile.phone : "-"
           })]
         })]
       })]
@@ -8097,7 +8019,7 @@ var Navbar = function Navbar() {
               _context.prev = 0;
               e.preventDefault();
               formData = new FormData();
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(apiUrl, "/api/auth/sign-out"), formData);
 
@@ -8132,7 +8054,7 @@ var Navbar = function Navbar() {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "container flex flex-wrap justify-between items-center mx-auto",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        href: "http://127.0.0.1:8000",
+        href: "http://localhost:8000",
         className: "flex items-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
           src: "/images/logo_full.png",
@@ -8344,7 +8266,7 @@ var ChurchForm = function ChurchForm() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/church/me"), {
@@ -8770,6 +8692,13 @@ var Tab = function Tab() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         className: "",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: "/preference/campaign-management",
+          className: "inline-block p-4 rounded-t-lg border-b-2 ".concat(location.pathname == "/preference/campaign-management" ? "text-amber-500 border-amber-500" : "border-transparent", " hover:text-amber-600 hover:border-amber-600 duration-300"),
+          children: "Campaign Management"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        className: "",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           href: "/preference/withdrawal-account",
           className: "inline-block p-4 rounded-t-lg border-b-2 ".concat(location.pathname == "/preference/withdrawal-account" ? "text-amber-500 border-amber-500" : "border-transparent", " hover:text-amber-600 hover:border-amber-600 duration-300"),
           children: "Withdrawal Account"
@@ -8929,7 +8858,7 @@ var Agreement = function Agreement() {
               formData.append("church[state]", churchState.get());
               formData.append("church[country]", churchCountry.get());
               formData.append("church[postal_code]", churchPostalCode.get());
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               _context.next = 18;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-up"), formData);
 
@@ -8978,7 +8907,7 @@ var Agreement = function Agreement() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-        href: "http://127.0.0.1:8000",
+        href: "http://localhost:8000",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9183,7 +9112,7 @@ var BankAccount = function BankAccount() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(apiUrl, "/api/bank-institution"), {
@@ -9245,7 +9174,7 @@ var BankAccount = function BankAccount() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
-        href: "http://127.0.0.1:8000",
+        href: "http://localhost:8000",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9403,7 +9332,7 @@ var ChurchProfile = function ChurchProfile() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://127.0.0.1:8000",
+        href: "http://localhost:8000",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9474,7 +9403,6 @@ var ChurchProfile = function ChurchProfile() {
                 return churchCity.set(e.target.value);
               },
               placeholder: "City",
-              minLength: 6,
               maxLength: 255,
               required: true
             })]
@@ -9491,7 +9419,6 @@ var ChurchProfile = function ChurchProfile() {
                 return churchState.set(e.target.value);
               },
               placeholder: "State",
-              minLength: 6,
               maxLength: 255,
               required: true
             })]
@@ -9525,7 +9452,6 @@ var ChurchProfile = function ChurchProfile() {
                 return churchCountry.set(e.target.value);
               },
               placeholder: "Country",
-              minLength: 6,
               maxLength: 255,
               required: true
             })]
@@ -9583,7 +9509,7 @@ var ContactPerson = function ContactPerson() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://127.0.0.1:8000",
+        href: "http://localhost:8000",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9742,7 +9668,7 @@ var InitialForm = function InitialForm() {
               loading.set(true);
               formData = new FormData();
               formData.append("email", email.get());
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               _context.next = 8;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(apiUrl, "/api/auth/validate-email"), formData);
 
@@ -9796,7 +9722,7 @@ var InitialForm = function InitialForm() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "bg-white rounded-lg w-full p-12 space-y-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-              href: "http://127.0.0.1:8000",
+              href: "http://localhost:8000",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 className: "h-12",
                 src: "/images/logo_full.png",
@@ -10054,7 +9980,7 @@ var Verification = function Verification() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://127.0.0.1:8000",
+        href: "http://localhost:8000",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -10112,10 +10038,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faFolder__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faFolder */ "./node_modules/@fortawesome/free-solid-svg-icons/faFolder.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faScrewdriverWrench */ "./node_modules/@fortawesome/free-solid-svg-icons/faScrewdriverWrench.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faDonate */ "./node_modules/@fortawesome/free-solid-svg-icons/faDonate.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faChurch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faChurch */ "./node_modules/@fortawesome/free-solid-svg-icons/faChurch.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faScrewdriverWrench */ "./node_modules/@fortawesome/free-solid-svg-icons/faScrewdriverWrench.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faDonate */ "./node_modules/@fortawesome/free-solid-svg-icons/faDonate.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_faDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faDashboard */ "./node_modules/@fortawesome/free-solid-svg-icons/faDashboard.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -10123,8 +10047,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
 
 
 
@@ -10159,21 +10081,10 @@ var Sidebar = function Sidebar() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-            to: "/campaign-management",
-            className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/campaign-management" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-              icon: _fortawesome_free_solid_svg_icons_faChurch__WEBPACK_IMPORTED_MODULE_6__.faChurch
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "ml-3",
-              children: "Campaign Management"
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
             to: "/finance",
             className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/finance" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-              icon: _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_7__.faDonate
+              icon: _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_6__.faDonate
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "ml-3",
               children: "Finance"
@@ -10184,21 +10095,10 @@ var Sidebar = function Sidebar() {
             to: "/preference",
             className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/preference" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-              icon: _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_8__.faScrewdriverWrench
+              icon: _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_7__.faScrewdriverWrench
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "ml-3",
               children: "Setting"
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-            to: "/material",
-            className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/material" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-              icon: _fortawesome_free_solid_svg_icons_faFolder__WEBPACK_IMPORTED_MODULE_9__.faFolder
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "ml-3",
-              children: "Materials"
             })]
           })
         })]
@@ -10222,7 +10122,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faImage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faImage */ "./node_modules/@fortawesome/free-solid-svg-icons/faImage.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_faImage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faImage */ "./node_modules/@fortawesome/free-solid-svg-icons/faImage.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -10233,7 +10133,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Layout */ "./resources/js/components/Layout.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Navbar */ "./resources/js/components/Navbar.js");
 /* harmony import */ var _components_Sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Sidebar */ "./resources/js/components/Sidebar.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Preference_Tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Preference/Tab */ "./resources/js/components/Preference/Tab.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
@@ -10255,6 +10156,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -10336,7 +10238,7 @@ var CampaignManagement = function CampaignManagement() {
                 formData.append("banner_image", bannerImage);
               }
 
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               token = localStorage.getItem("token");
               _context.next = 13;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/campaign"), formData, {
@@ -10394,7 +10296,7 @@ var CampaignManagement = function CampaignManagement() {
             case 0:
               _context2.prev = 0;
               setLoading(true);
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               token = localStorage.getItem("token");
               _context2.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/campaign/null"), {
@@ -10470,76 +10372,76 @@ var CampaignManagement = function CampaignManagement() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchCampaign();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "container mx-auto flex",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Sidebar__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("main", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Sidebar__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("main", {
         className: "w-full p-10 space-y-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "text-xl font-bold",
           children: "Campaign Management"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("form", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Preference_Tab__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
           onSubmit: handleSubmit,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "w-full space-y-4",
-            children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg",
               role: "alert",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
                 role: "status",
                 className: "inline w-4 h-4 mr-3 text-blue-700 animate-spin",
                 viewBox: "0 0 100 101",
                 fill: "none",
                 xmlns: "http://www.w3.org/2000/svg",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   d: "M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z",
                   fill: "#E5E7EB"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   d: "M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z",
                   fill: "currentColor"
                 })]
               }), "Please wait..."]
-            }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800",
               role: "alert",
               children: error
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 htmlFor: "banner",
                 className: "block mb-2 text-sm font-medium text-gray-900",
                 children: "Banner Image"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "rounded-lg border border-neutral-200 w-2/3 aspect-video",
-                children: [bannerImagePreview != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                children: [bannerImagePreview != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                   className: "rounded-lg object-center object-cover cursor-pointer",
                   src: bannerImagePreview,
                   alt: "Banner Image",
                   onClick: onSelectBannerImage
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                   className: "flex flex-col justify-center items-center space-y-2 p-10 h-full",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
-                    icon: _fortawesome_free_solid_svg_icons_faImage__WEBPACK_IMPORTED_MODULE_8__.faImage
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                    children: "Format file JPG, PNG and max. image size is 2MB"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+                    icon: _fortawesome_free_solid_svg_icons_faImage__WEBPACK_IMPORTED_MODULE_9__.faImage
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    children: "Format file JPG, PNG and max. image size is 10MB"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                     type: "button",
                     className: "text-black border border-neutral-300 bg-white hover:bg-neutral-300 focus:ring-4 focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 duration-300",
                     onClick: onSelectBannerImage,
                     children: "Upload Image"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                   type: "file",
                   ref: bannerImageRef,
                   onChange: onChangeBannerImage,
                   className: "hidden"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 htmlFor: "name",
                 className: "block mb-2 text-sm font-medium text-gray-900",
                 children: "Campaign Title"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                 type: "text",
                 id: "name",
                 className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5",
@@ -10550,12 +10452,12 @@ var CampaignManagement = function CampaignManagement() {
                 placeholder: "Enter your campaign title",
                 required: true
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 htmlFor: "introduction",
                 className: "block mb-2 text-sm font-medium text-gray-900",
                 children: "Campaign Introduction"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
                 id: "introduction",
                 className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5",
                 value: introduction,
@@ -10565,12 +10467,12 @@ var CampaignManagement = function CampaignManagement() {
                 placeholder: "Enter your campaign introduction",
                 required: true
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 htmlFor: "campaign_content",
                 className: "block mb-2 text-sm font-medium text-gray-900",
                 children: "Campaign Content"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
                 id: "campaign_content",
                 className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5",
                 value: campaignContent,
@@ -10580,12 +10482,12 @@ var CampaignManagement = function CampaignManagement() {
                 placeholder: "Enter your campaign content",
                 required: true
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 htmlFor: "donation_content",
                 className: "block mb-2 text-sm font-medium text-gray-900",
                 children: "Donation Content"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("textarea", {
                 id: "donation_content",
                 className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5",
                 value: donationContent,
@@ -10595,25 +10497,25 @@ var CampaignManagement = function CampaignManagement() {
                 placeholder: "Enter your donation content",
                 required: true
               })]
-            }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
               disabled: true,
               type: "button",
               className: "text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 duration-300 flex justify-center items-center shrink",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
                 role: "status",
                 className: "inline w-4 h-4 mr-3 text-white animate-spin",
                 viewBox: "0 0 100 101",
                 fill: "none",
                 xmlns: "http://www.w3.org/2000/svg",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   d: "M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z",
                   fill: "#E5E7EB"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   d: "M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z",
                   fill: "currentColor"
                 })]
               }), "Loading..."]
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
               type: "submit",
               className: "text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 duration-300 shrink",
               children: "Preview"
@@ -10621,7 +10523,7 @@ var CampaignManagement = function CampaignManagement() {
           })
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)((react_modal__WEBPACK_IMPORTED_MODULE_3___default()), {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((react_modal__WEBPACK_IMPORTED_MODULE_3___default()), {
       isOpen: modalPreviewIsOpen,
       onRequestClose: function onRequestClose() {
         return setModalPreviewIsOpen(false);
@@ -10629,23 +10531,23 @@ var CampaignManagement = function CampaignManagement() {
       contentLabel: "Preview",
       className: "relative p-4 w-full max-w-2xl h-full md:h-auto",
       overlayClassName: "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center items-center bg-white/50 backdrop-blur-sm",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "relative bg-white rounded-lg shadow dark:bg-gray-700",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex justify-between items-center p-4 rounded-t border-b dark:border-gray-600",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
             className: "text-xl font-semibold text-gray-900 dark:text-white",
             children: "Preview"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "flex space-x-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
               type: "button",
               className: "text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-amber-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 duration-300",
               onClick: function onClick() {
                 return setModalPreviewIsOpen(false);
               },
               children: "Cancel"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
               type: "button",
               className: "text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300",
               onClick: function onClick() {
@@ -10654,16 +10556,16 @@ var CampaignManagement = function CampaignManagement() {
               children: "Publish"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "p-6 space-y-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             className: "rounded-lg object-center object-cover",
             src: bannerImagePreview,
             alt: "Banner Image Preview"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "text-xl font-bold",
             children: name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "text-base leading-relaxed text-gray-500 dark:text-gray-400",
             children: campaignContent
           })]
@@ -10785,7 +10687,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Finance = function Finance() {
-  var apiUrl = "http://127.0.0.1:8000";
+  var apiUrl = "http://localhost:8000";
   var token = localStorage.getItem("token");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -10976,7 +10878,7 @@ var Login = function Login() {
               formData = new FormData();
               formData.append("email", email);
               formData.append("password", password);
-              apiUrl = "http://127.0.0.1:8000";
+              apiUrl = "http://localhost:8000";
               _context.next = 9;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-in"), formData);
 
@@ -11042,7 +10944,7 @@ var Login = function Login() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "bg-white rounded-lg w-full p-12 space-y-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-              href: "http://127.0.0.1:8000",
+              href: "http://localhost:8000",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                 className: "h-12",
                 src: "/images/logo_full.png",
@@ -11175,7 +11077,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Material = function Material() {
-  var apiUrl = "http://127.0.0.1:8000";
+  var apiUrl = "http://localhost:8000";
   var token = localStorage.getItem("token");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {

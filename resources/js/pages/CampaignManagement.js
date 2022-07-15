@@ -7,6 +7,7 @@ import Modal from "react-modal";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import Tab from "../components/Preference/Tab";
 
 const CampaignManagement = () => {
     const bannerImageRef = useRef("");
@@ -121,6 +122,7 @@ const CampaignManagement = () => {
                 <Sidebar />
                 <main className="w-full p-10 space-y-4">
                     <div className="text-xl font-bold">Campaign Management</div>
+                    <Tab />
                     <form onSubmit={handleSubmit}>
                         <div className="w-full space-y-4">
                             {loading && (
@@ -179,7 +181,7 @@ const CampaignManagement = () => {
                                             />
                                             <div>
                                                 Format file JPG, PNG and max.
-                                                image size is 2MB
+                                                image size is 10MB
                                             </div>
                                             <button
                                                 type="button"

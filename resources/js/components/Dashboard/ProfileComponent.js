@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const ProfileComponent = () => {
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const fetchProfile = async () => {
@@ -9,12 +10,13 @@ const ProfileComponent = () => {
             setLoading(true);
             const apiUrl = process.env.MIX_MAIN_APP_URL;
             const token = localStorage.getItem("token");
-            const response = await axios.get(`${apiUrl}/api/auth/profile`, {
+            const response = await axios.get(`${apiUrl}/api/church/me`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
             console.log(response);
+            setData(response.data.data);
             setLoading(false);
         } catch (error) {
             setLoading(false);
@@ -25,11 +27,7 @@ const ProfileComponent = () => {
             } else {
                 console.log(error);
             }
-            setError({
-                message: message,
-                status: false,
-                data: null,
-            });
+            setError(message);
         }
     };
     useEffect(() => {
@@ -45,7 +43,9 @@ const ProfileComponent = () => {
                 alt=""
             />
             <div className="flex flex-col space-y-2">
-                <div className="text-xl font-bold">Church Name</div>
+                <div className="text-xl font-bold">
+                    {data ? data.name : "-"}
+                </div>
                 <div className="grid grid-cols-3 gap-4">
                     <div>
                         <small className="text-xs font-thin">Website</small>
@@ -55,13 +55,13 @@ const ProfileComponent = () => {
                         <small className="text-xs font-thin">
                             Phone Number
                         </small>
-                        <div>(980) 378-0377</div>
+                        <div>{data ? data.user.profile.phone : "-"}</div>
                     </div>
                     <div>
                         <small className="text-xs font-thin">
                             Australian Business Number
                         </small>
-                        <div>1234567890</div>
+                        <div>{data ? data.user.profile.phone : "-"}</div>
                     </div>
                 </div>
             </div>
