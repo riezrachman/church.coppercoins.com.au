@@ -20,23 +20,15 @@ const Login = () => {
             const formData = new FormData();
             formData.append("email", email);
             formData.append("password", password);
+            formData.append("role", "church");
             const apiUrl = process.env.MIX_MAIN_APP_URL;
             const response = await axios.post(
                 `${apiUrl}/api/auth/sign-in`,
                 formData
             );
-            if (response.data.data.user.role == "church") {
-                localStorage.setItem("token", response.data.data.token);
-                setLoading(false);
-                navigate("/");
-            } else {
-                setLoading(false);
-                setValidation({
-                    message: "Your account not registered as church.",
-                    status: false,
-                    data: null,
-                });
-            }
+            localStorage.setItem("token", response.data.data.token);
+            setLoading(false);
+            navigate("/");
         } catch (error) {
             setLoading(false);
             var message = "Oops! Something went wrong...";
