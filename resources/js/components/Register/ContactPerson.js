@@ -24,10 +24,6 @@ const ContactPerson = () => {
                 <a href={process.env.MIX_MAIN_APP_URL}>
                     <img className="h-12" src="/images/logo_full.png" alt="" />
                 </a>
-                <div className="text-gray-500 font-light">
-                    Be part of us, mauris neque nisi faucibus non elementum in,
-                    convallis et eros.
-                </div>
                 <Steps currentIndex={stepIndex.get()} />
             </div>
             <form

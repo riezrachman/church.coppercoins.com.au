@@ -3103,6 +3103,46 @@ exports.aliases = aliases;
 
 /***/ }),
 
+/***/ "./node_modules/@fortawesome/free-solid-svg-icons/faCreditCard.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@fortawesome/free-solid-svg-icons/faCreditCard.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var prefix = 'fas';
+var iconName = 'credit-card';
+var width = 576;
+var height = 512;
+var aliases = [62083,128179,"credit-card-alt"];
+var unicode = 'f09d';
+var svgPathData = 'M512 32C547.3 32 576 60.65 576 96V128H0V96C0 60.65 28.65 32 64 32H512zM576 416C576 451.3 547.3 480 512 480H64C28.65 480 0 451.3 0 416V224H576V416zM112 352C103.2 352 96 359.2 96 368C96 376.8 103.2 384 112 384H176C184.8 384 192 376.8 192 368C192 359.2 184.8 352 176 352H112zM240 384H368C376.8 384 384 376.8 384 368C384 359.2 376.8 352 368 352H240C231.2 352 224 359.2 224 368C224 376.8 231.2 384 240 384z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faCreditCard = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
+
+/***/ }),
+
 /***/ "./node_modules/@fortawesome/free-solid-svg-icons/faDashboard.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@fortawesome/free-solid-svg-icons/faDashboard.js ***!
@@ -8913,9 +8953,6 @@ var Agreement = function Agreement() {
           src: "/images/logo_full.png",
           alt: ""
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "text-gray-500 font-light",
-        children: "Be part of us, mauris neque nisi faucibus non elementum in, convallis et eros."
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Steps__WEBPACK_IMPORTED_MODULE_3__["default"], {
         currentIndex: stepIndex.get()
       })]
@@ -9180,9 +9217,6 @@ var BankAccount = function BankAccount() {
           src: "/images/logo_full.png",
           alt: ""
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: "text-gray-500 font-light",
-        children: "Be part of us, mauris neque nisi faucibus non elementum in, convallis et eros."
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Steps__WEBPACK_IMPORTED_MODULE_3__["default"], {
         currentIndex: stepIndex.get()
       })]
@@ -9338,9 +9372,6 @@ var ChurchProfile = function ChurchProfile() {
           src: "/images/logo_full.png",
           alt: ""
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "text-gray-500 font-light",
-        children: "Be part of us, mauris neque nisi faucibus non elementum in, convallis et eros."
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Steps__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentIndex: stepIndex.get()
       })]
@@ -9515,9 +9546,6 @@ var ContactPerson = function ContactPerson() {
           src: "/images/logo_full.png",
           alt: ""
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "text-gray-500 font-light",
-        children: "Be part of us, mauris neque nisi faucibus non elementum in, convallis et eros."
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Steps__WEBPACK_IMPORTED_MODULE_2__["default"], {
         currentIndex: stepIndex.get()
       })]
@@ -9923,7 +9951,7 @@ var Steps = function Steps(_ref) {
         children: "4"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "".concat(currentIndex == 4 ? "" : "text-black/30"),
-        children: "Aggreement"
+        children: "Agreement"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex space-x-2 items-center",
@@ -9986,9 +10014,6 @@ var Verification = function Verification() {
           src: "/images/logo_full.png",
           alt: ""
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "text-gray-500 font-light",
-        children: "Be part of us, mauris neque nisi faucibus non elementum in, convallis et eros."
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Steps__WEBPACK_IMPORTED_MODULE_3__["default"], {
         currentIndex: stepIndex.get()
       })]
@@ -10038,8 +10063,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faScrewdriverWrench */ "./node_modules/@fortawesome/free-solid-svg-icons/faScrewdriverWrench.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faDonate */ "./node_modules/@fortawesome/free-solid-svg-icons/faDonate.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faScrewdriverWrench */ "./node_modules/@fortawesome/free-solid-svg-icons/faScrewdriverWrench.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faDonate */ "./node_modules/@fortawesome/free-solid-svg-icons/faDonate.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons_faCreditCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faCreditCard */ "./node_modules/@fortawesome/free-solid-svg-icons/faCreditCard.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons_faDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons/faDashboard */ "./node_modules/@fortawesome/free-solid-svg-icons/faDashboard.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -10047,6 +10073,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -10081,10 +10108,21 @@ var Sidebar = function Sidebar() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
+            to: "/preference/withdrawal-account",
+            className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/preference/withdrawal-account" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+              icon: _fortawesome_free_solid_svg_icons_faCreditCard__WEBPACK_IMPORTED_MODULE_6__.faCreditCard
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "ml-3",
+              children: "Withdrawal Account"
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
             to: "/finance",
             className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/finance" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-              icon: _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_6__.faDonate
+              icon: _fortawesome_free_solid_svg_icons_faDonate__WEBPACK_IMPORTED_MODULE_7__.faDonate
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "ml-3",
               children: "Finance"
@@ -10095,7 +10133,7 @@ var Sidebar = function Sidebar() {
             to: "/preference",
             className: "flex items-center px-4 py-2 text-base font-normal ".concat(location.pathname == "/preference" ? "border-l-2 border-amber-500 text-amber-500" : "border-none text-neutral-500", " hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300"),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-              icon: _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_7__.faScrewdriverWrench
+              icon: _fortawesome_free_solid_svg_icons_faScrewdriverWrench__WEBPACK_IMPORTED_MODULE_8__.faScrewdriverWrench
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "ml-3",
               children: "Setting"
@@ -10878,31 +10916,21 @@ var Login = function Login() {
               formData = new FormData();
               formData.append("email", email);
               formData.append("password", password);
+              formData.append("role", "church");
               apiUrl = "http://localhost:8000";
-              _context.next = 9;
+              _context.next = 10;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-in"), formData);
 
-            case 9:
+            case 10:
               response = _context.sent;
-
-              if (response.data.data.user.role == "church") {
-                localStorage.setItem("token", response.data.data.token);
-                setLoading(false);
-                navigate("/");
-              } else {
-                setLoading(false);
-                setValidation({
-                  message: "Your account not registered as church.",
-                  status: false,
-                  data: null
-                });
-              }
-
-              _context.next = 19;
+              localStorage.setItem("token", response.data.data.token);
+              setLoading(false);
+              navigate("/");
+              _context.next = 22;
               break;
 
-            case 13:
-              _context.prev = 13;
+            case 16:
+              _context.prev = 16;
               _context.t0 = _context["catch"](1);
               setLoading(false);
               message = "Oops! Something went wrong...";
@@ -10920,12 +10948,12 @@ var Login = function Login() {
                 data: null
               });
 
-            case 19:
+            case 22:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[1, 13]]);
+      }, _callee, null, [[1, 16]]);
     }));
 
     return function handleLogin(_x) {

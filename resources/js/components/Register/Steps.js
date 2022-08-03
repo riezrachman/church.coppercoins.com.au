@@ -48,7 +48,7 @@ const Steps = ({ currentIndex }) => {
                     4
                 </div>
                 <div className={`${currentIndex == 4 ? "" : "text-black/30"}`}>
-                    Aggreement
+                    Agreement
                 </div>
             </div>
             <div className={`flex space-x-2 items-center`}>

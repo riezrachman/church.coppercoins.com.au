@@ -27,6 +27,20 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink
+                            to={`/preference/withdrawal-account`}
+                            className={`flex items-center px-4 py-2 text-base font-normal ${
+                                location.pathname ==
+                                "/preference/withdrawal-account"
+                                    ? "border-l-2 border-amber-500 text-amber-500"
+                                    : "border-none text-neutral-500"
+                            } hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300`}
+                        >
+                            <FontAwesomeIcon icon={solid("credit-card")} />
+                            <span className="ml-3">Withdrawal Account</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
                             to={`/finance`}
                             className={`flex items-center px-4 py-2 text-base font-normal ${
                                 location.pathname == "/finance"
