@@ -36,32 +36,59 @@ const ProfileComponent = () => {
     return loading ? (
         <></>
     ) : (
-        <div className="border bg-white rounded-lg p-4 flex space-x-2">
-            <img
-                className="rounded-lg object-cover object-center h-24 aspect-square"
-                src="/images/placeholder.png"
-                alt=""
-            />
-            <div className="flex flex-col space-y-2">
-                <div className="text-xl font-bold">
-                    {data ? data.name : "-"}
+        <div className="border bg-white rounded-lg p-4 flex flex-col space-y-4">
+            <div className="flex space-x-4">
+                <img
+                    className="rounded-lg object-cover object-center h-24 aspect-square"
+                    src="/images/placeholder.png"
+                    alt=""
+                />
+                <div className="flex flex-col space-y-2">
+                    <div className="text-xl font-bold">
+                        {data ? data.name : "-"}
+                    </div>
+                    <div className="grid grid-cols-3 gap-4">
+                        <div>
+                            <small className="text-xs font-thin">
+                                Australian Business Number
+                            </small>
+                            <div>{data ? data.user.profile.phone : "-"}</div>
+                        </div>
+                        <div>
+                            <small className="text-xs font-thin">Website</small>
+                            <div>coppercoins.com</div>
+                        </div>
+                    </div>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
-                    <div>
-                        <small className="text-xs font-thin">Website</small>
-                        <div>coppercoins.com</div>
+            </div>
+            <div className="flex flex-col">
+                <div className="font-bold mb-4">Contact Information</div>
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col space-y-2">
+                        <div className="flex space-x-4">
+                            <div className="text-gray-500 w-1/2">Email</div>
+                            <div>{data ? data.user.email : "-"}</div>
+                        </div>
+                        <div className="flex space-x-4">
+                            <div className="text-gray-500 w-1/2">
+                                Contact Number
+                            </div>
+                            <div>{data ? data.user.profile.phone : "-"}</div>
+                        </div>
+                        <div className="flex space-x-4">
+                            <div className="text-gray-500 w-1/2">
+                                Contact Person
+                            </div>
+                            <div>{data ? data.user.name : "-"}</div>
+                        </div>
                     </div>
-                    <div>
-                        <small className="text-xs font-thin">
-                            Phone Number
-                        </small>
-                        <div>{data ? data.user.profile.phone : "-"}</div>
-                    </div>
-                    <div>
-                        <small className="text-xs font-thin">
-                            Australian Business Number
-                        </small>
-                        <div>{data ? data.user.profile.phone : "-"}</div>
+                    <div className="flex flex-col space-y-2">
+                        <div className="flex space-x-4">
+                            <div className="text-gray-500 w-1/2">
+                                Church Address
+                            </div>
+                            <div>{data ? data.address.address : "-"}</div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,36 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import Modal from "react-modal";
 
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Tab from "../components/Preference/Tab";
 
-const CampaignManagement = () => {
-    const [institutions, setInstitutions] = useState([]);
+const WithdrawalAccount = () => {
+    const bannerImageRef = useRef("");
 
-    const [institutionId, setInstitutionId] = useState("");
-    const [bsb, setBsb] = useState("");
-    const [accountName, setAccountName] = useState("");
-    const [accountNumber, setAccountNumber] = useState("");
+    const [name, setName] = useState("");
+    const [introduction, setIntroduction] = useState("");
+    const [campaignContent, setCampaignContent] = useState("");
+    const [donationContent, setDonationContent] = useState("");
+    const [bannerImage, setBannerImage] = useState(null);
+    const [bannerImagePreview, setBannerImagePreview] = useState(null);
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    Modal.setAppElement("#app");
+    const [modalPreviewIsOpen, setModalPreviewIsOpen] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            setError("");
             setLoading(true);
+
             const formData = new FormData();
-            formData.append("insitution_id", institutionId);
-            formData.append("bsb", bsb);
-            formData.append("account_name", accountName);
-            formData.append("account_number", accountNumber);
+            formData.append("name", name);
+            formData.append("introduction", introduction);
+            formData.append("campaign_content", campaignContent);
+            formData.append("donation_content", donationContent);
+            if (bannerImage != null) {
+                formData.append("banner_image", bannerImage);
+            }
+
             const apiUrl = process.env.MIX_MAIN_APP_URL;
             const token = localStorage.getItem("token");
             const response = await axios.post(
-                `${apiUrl}/api/church-bank`,
+                `${apiUrl}/api/campaign`,
                 formData,
                 {
                     headers: {
@@ -39,8 +51,9 @@ const CampaignManagement = () => {
                 }
             );
             console.log(response);
-            await fetchAccount();
+            await fetchCampaign();
             setLoading(false);
+            setModalPreviewIsOpen(true);
         } catch (error) {
             setLoading(false);
             var message = "Oops! Something went wrong...";
@@ -53,13 +66,12 @@ const CampaignManagement = () => {
             setError(message);
         }
     };
-    const fetchAccount = async () => {
+    const fetchCampaign = async () => {
         try {
             setLoading(true);
             const apiUrl = process.env.MIX_MAIN_APP_URL;
             const token = localStorage.getItem("token");
-            await getBankInstitution();
-            const response = await axios.get(`${apiUrl}/api/church-bank/me`, {
+            const response = await axios.get(`${apiUrl}/api/campaign/null`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -67,10 +79,11 @@ const CampaignManagement = () => {
             if (response.status == 200) {
                 console.log(response.data);
                 if (response.data.data) {
-                    setInstitutionId(response.data.data.institution.id);
-                    setBsb(response.data.data.bsb);
-                    setAccountName(response.data.data.account_name);
-                    setAccountNumber(response.data.data.account_number);
+                    setBannerImagePreview(response.data.data.banner_image);
+                    setName(response.data.data.name);
+                    setIntroduction(response.data.data.introduction);
+                    setCampaignContent(response.data.data.campaign_content);
+                    setDonationContent(response.data.data.donation_content);
                 }
             }
             setLoading(false);
@@ -86,22 +99,21 @@ const CampaignManagement = () => {
             setError(message);
         }
     };
-    async function getBankInstitution() {
-        try {
-            const apiUrl = process.env.MIX_MAIN_APP_URL;
-            const response = await axios.get(`${apiUrl}/api/bank-institution`, {
-                headers: {
-                    Accept: "application/json",
-                },
-            });
-            setInstitutions(response.data.data);
-        } catch (error) {
-            console.log(error);
-            setError("Failed to load Bank list");
-        }
-    }
+    const onSelectBannerImage = (e) => {
+        e.preventDefault();
+        bannerImageRef.current.click();
+    };
+    const onChangeBannerImage = (e) => {
+        const file = e.target.files[0];
+        setBannerImage(file);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            setBannerImagePreview(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    };
     useEffect(() => {
-        fetchAccount();
+        fetchCampaign();
     }, []);
     return (
         <Layout>
@@ -109,7 +121,7 @@ const CampaignManagement = () => {
             <div className="container mx-auto flex">
                 <Sidebar />
                 <main className="w-full p-10 space-y-4">
-                    <div className="text-xl font-bold">Withdrawal Account</div>
+                    <div className="text-xl font-bold">Campaign Management</div>
                     <Tab />
                     <form onSubmit={handleSubmit}>
                         <div className="w-full space-y-4">
@@ -147,79 +159,115 @@ const CampaignManagement = () => {
                             )}
                             <div>
                                 <label
-                                    htmlFor="bsb"
+                                    htmlFor="banner"
                                     className="block mb-2 text-sm font-medium text-gray-900"
                                 >
-                                    BSB
+                                    Banner Image
                                 </label>
-                                <select
-                                    id="institution_id"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-                                    value={institutionId}
-                                    onChange={(e) =>
-                                        setInstitutionId(e.target.value)
-                                    }
-                                    required
+                                <div
+                                    className={`rounded-lg border border-neutral-200 w-2/3 aspect-video`}
                                 >
-                                    {institutions.map((e) => (
-                                        <option key={e.id} value={e.id}>
-                                            {e.full_name}
-                                        </option>
-                                    ))}
-                                </select>
+                                    {bannerImagePreview != null ? (
+                                        <img
+                                            className="rounded-lg object-center object-cover cursor-pointer"
+                                            src={bannerImagePreview}
+                                            alt="Banner Image"
+                                            onClick={onSelectBannerImage}
+                                        />
+                                    ) : (
+                                        <div className="flex flex-col justify-center items-center space-y-2 p-10 h-full">
+                                            <FontAwesomeIcon
+                                                icon={solid("image")}
+                                            />
+                                            <div>
+                                                Format file JPG, PNG and max.
+                                                image size is 10MB
+                                            </div>
+                                            <button
+                                                type="button"
+                                                className="text-black border border-neutral-300 bg-white hover:bg-neutral-300 focus:ring-4 focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 duration-300"
+                                                onClick={onSelectBannerImage}
+                                            >
+                                                Upload Image
+                                            </button>
+                                        </div>
+                                    )}
+                                    <input
+                                        type="file"
+                                        ref={bannerImageRef}
+                                        onChange={onChangeBannerImage}
+                                        className="hidden"
+                                    />
+                                </div>
                             </div>
                             <div>
                                 <label
-                                    htmlFor="bsb"
+                                    htmlFor="name"
                                     className="block mb-2 text-sm font-medium text-gray-900"
                                 >
-                                    BSB
+                                    Campaign Title
                                 </label>
                                 <input
                                     type="text"
-                                    id="bsb"
+                                    id="name"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-                                    value={bsb}
-                                    onChange={(e) => setBsb(e.target.value)}
-                                    placeholder="Enter your BSB"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Enter your campaign title"
                                     required
                                 />
                             </div>
                             <div>
                                 <label
-                                    htmlFor="account_name"
+                                    htmlFor="introduction"
                                     className="block mb-2 text-sm font-medium text-gray-900"
                                 >
-                                    Account Name
+                                    Campaign Introduction
                                 </label>
-                                <input
-                                    type="text"
-                                    id="account_name"
+                                <textarea
+                                    id="introduction"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-                                    value={accountName}
+                                    value={introduction}
                                     onChange={(e) =>
-                                        setAccountName(e.target.value)
+                                        setIntroduction(e.target.value)
                                     }
-                                    placeholder="Enter your account name"
+                                    placeholder="Enter your campaign introduction"
                                     required
                                 />
                             </div>
                             <div>
                                 <label
-                                    htmlFor="account_number"
+                                    htmlFor="campaign_content"
                                     className="block mb-2 text-sm font-medium text-gray-900"
                                 >
-                                    Account Number
+                                    Campaign Content
                                 </label>
-                                <input
-                                    type="text"
-                                    id="account_number"
+                                <textarea
+                                    id="campaign_content"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
-                                    value={accountNumber}
+                                    value={campaignContent}
                                     onChange={(e) =>
-                                        setAccountNumber(e.target.value)
+                                        setCampaignContent(e.target.value)
                                     }
-                                    placeholder="Enter your account number"
+                                    placeholder="Enter your campaign content"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    htmlFor="donation_content"
+                                    className="block mb-2 text-sm font-medium text-gray-900"
+                                >
+                                    Donation Content
+                                </label>
+                                <textarea
+                                    id="donation_content"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5"
+                                    value={donationContent}
+                                    onChange={(e) =>
+                                        setDonationContent(e.target.value)
+                                    }
+                                    placeholder="Enter your donation content"
                                     required
                                 />
                             </div>
@@ -252,15 +300,57 @@ const CampaignManagement = () => {
                                     type="submit"
                                     className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 duration-300 shrink"
                                 >
-                                    Save Changes
+                                    Preview
                                 </button>
                             )}
                         </div>
                     </form>
                 </main>
             </div>
+            <Modal
+                isOpen={modalPreviewIsOpen}
+                onRequestClose={() => setModalPreviewIsOpen(false)}
+                contentLabel="Preview"
+                className="relative p-4 w-full max-w-2xl h-full md:h-auto"
+                overlayClassName="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center items-center bg-white/50 backdrop-blur-sm"
+            >
+                <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div className="flex justify-between items-center p-4 rounded-t border-b dark:border-gray-600">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                            Preview
+                        </h3>
+                        <div className="flex space-x-2">
+                            <button
+                                type="button"
+                                className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-amber-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 duration-300"
+                                onClick={() => setModalPreviewIsOpen(false)}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="button"
+                                className="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center duration-300"
+                                onClick={() => setModalPreviewIsOpen(false)}
+                            >
+                                Publish
+                            </button>
+                        </div>
+                    </div>
+                    <div className="p-6 space-y-2">
+                        <img
+                            className="rounded-lg object-center object-cover"
+                            src={bannerImagePreview}
+                            alt="Banner Image Preview"
+                        />
+                        <div className="text-xl font-bold">{name}</div>
+                        <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                            {campaignContent}
+                        </p>
+                    </div>
+                </div>
+            </Modal>
         </Layout>
     );
 };
 
-export default CampaignManagement;
+export default WithdrawalAccount;

@@ -33,6 +33,14 @@ const App = () => {
                     }
                 />
                 <Route
+                    path="/preference/withdrawal-account"
+                    element={
+                        <Protected>
+                            <CampaignManagement />
+                        </Protected>
+                    }
+                />
+                <Route
                     path="/finance"
                     element={
                         <Protected>

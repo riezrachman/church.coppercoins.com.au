@@ -18,27 +18,22 @@ const Dashboard = () => {
                             <small className="text-xs font-thin">
                                 Total Donated
                             </small>
-                            <div className="text-xl font-semibold">
-                                13.250 AUD
-                            </div>
+                            <div className="text-xl font-semibold">0 AUD</div>
                         </div>
                         <div className="border hover:border-none bg-white rounded-lg p-4 hover:drop-shadow-lg duration-300">
                             <small className="text-xs font-thin">
                                 Current Active Balance
                             </small>
-                            <div className="text-xl font-semibold">810 AUD</div>
+                            <div className="text-xl font-semibold">0 AUD</div>
                         </div>
                         <div className="border hover:border-none bg-white rounded-lg p-4 hover:drop-shadow-lg duration-300">
                             <small className="text-xs font-thin">
                                 Added Watchlist
                             </small>
-                            <div className="text-xl font-semibold">142</div>
+                            <div className="text-xl font-semibold">0</div>
                         </div>
                     </div>
                     <ProfileComponent />
-                    <div className="border bg-white rounded-lg p-4 flex space-x-2">
-                        <div className="text-xl font-bold">Donations</div>
-                    </div>
                 </main>
             </div>
         </Layout>
