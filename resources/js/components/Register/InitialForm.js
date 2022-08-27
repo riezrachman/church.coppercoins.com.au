@@ -30,6 +30,7 @@ const InitialForm = () => {
             loading.set(true);
             const formData = new FormData();
             formData.append("email", email.get());
+            formData.append("role", "church");
             const apiUrl = process.env.MIX_MAIN_APP_URL;
             const response = await axios.post(
                 `${apiUrl}/api/auth/validate-email`,
@@ -73,9 +74,7 @@ const InitialForm = () => {
                                     Church Portal
                                 </div>
                                 <div className="text-gray-500 font-light">
-                                    Welcome to CopperCoins portal, mauris neque
-                                    nisi, faucibus non elementum in, convallis
-                                    et eros.
+                                    Welcome to CopperCoins portal
                                 </div>
                             </div>
                             {errorMessage.get() != "" && (

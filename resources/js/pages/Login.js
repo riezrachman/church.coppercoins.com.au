@@ -64,9 +64,7 @@ const Login = () => {
                                     Church Portal
                                 </div>
                                 <div className="">
-                                    Welcome to CopperCoins portal, mauris neque
-                                    nisi, faucibus non elementum in, convallis
-                                    et eros.
+                                    Welcome to CopperCoins portal
                                 </div>
                             </div>
                             {validation.message && (
