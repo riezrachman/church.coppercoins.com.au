@@ -82,21 +82,32 @@ const ChurchProfile = () => {
                         </div>
                         <div>
                             <Label htmlFor="state">State</Label>
-                            <input
-                                type="text"
+                            <select
                                 id="state"
                                 className="form-control"
                                 value={churchState.get()}
                                 onChange={(e) =>
                                     churchState.set(e.target.value)
                                 }
-                                placeholder="State"
-                                maxLength={255}
                                 required
-                            />
+                            >
+                                <option value="" disabled selected>
+                                    State
+                                </option>
+                                <option value="VIC">Victoria</option>
+                                <option value="NSW">New South Wales</option>
+                                <option value="QLD">Queensland</option>
+                                <option value="TAS">Tasmania</option>
+                                <option value="WA">Western Australia</option>
+                                <option value="SA">South Australia</option>
+                                <option value="NT">Northern Territory</option>
+                                <option value="ACT">
+                                    Australian Capital Territory
+                                </option>
+                            </select>
                         </div>
                         <div>
-                            <Label htmlFor="postal_code">ZIP Code</Label>
+                            <Label htmlFor="postal_code">Postal Code</Label>
                             <input
                                 type="number"
                                 id="postal_code"

@@ -8838,6 +8838,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var Agreement = function Agreement() {
+  var apiUrl = "http://localhost:8000";
   var stepIndex = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_2__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_4__.stepIndexState);
   var agreeAllState = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_2__.createState)(false);
   var agreeAll = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_2__.useState)(agreeAllState);
@@ -8886,7 +8887,7 @@ var Agreement = function Agreement() {
 
   var handleRegister = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-      var formData, apiUrl, response, message;
+      var formData, response, message;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -8906,11 +8907,10 @@ var Agreement = function Agreement() {
               formData.append("church[state]", churchState.get());
               formData.append("church[country]", churchCountry.get());
               formData.append("church[postal_code]", churchPostalCode.get());
-              apiUrl = "http://localhost:8000";
-              _context.next = 18;
+              _context.next = 17;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-up"), formData);
 
-            case 18:
+            case 17:
               response = _context.sent;
               loading.set(false);
 
@@ -8919,11 +8919,11 @@ var Agreement = function Agreement() {
                 stepIndex.set(stepIndex.get() + 1);
               }
 
-              _context.next = 29;
+              _context.next = 28;
               break;
 
-            case 23:
-              _context.prev = 23;
+            case 22:
+              _context.prev = 22;
               _context.t0 = _context["catch"](1);
               loading.set(false);
               message = "Oops! Something went wrong...";
@@ -8937,12 +8937,12 @@ var Agreement = function Agreement() {
 
               errorMessage.set(message);
 
-            case 29:
+            case 28:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[1, 23]]);
+      }, _callee, null, [[1, 22]]);
     }));
 
     return function handleRegister(_x) {
@@ -9007,7 +9007,7 @@ var Agreement = function Agreement() {
             htmlFor: "agree_privacy_policy",
             className: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300",
             children: ["I agree and understand the", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-              to: "/privacy-policy",
+              to: "".concat(apiUrl, "/terms/website-clause"),
               className: "underline",
               children: "Privacy Policy"
             })]
@@ -9027,7 +9027,7 @@ var Agreement = function Agreement() {
             htmlFor: "agree_website_terms",
             className: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300",
             children: ["I agree and understand the", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-              to: "/terms",
+              to: "".concat(apiUrl, "/terms/website-clause"),
               className: "underline",
               children: "Website Terms of Use"
             })]
@@ -9047,7 +9047,7 @@ var Agreement = function Agreement() {
             htmlFor: "agree_charity_terms",
             className: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300",
             children: ["I agree and understand the", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-              to: "/terms",
+              to: "".concat(apiUrl, "/terms/website-clause"),
               className: "underline",
               children: "Charity Terms of Use"
             })]
@@ -9449,22 +9449,49 @@ var ChurchProfile = function ChurchProfile() {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
               htmlFor: "state",
               children: "State"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-              type: "text",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
               id: "state",
               className: "form-control",
               value: churchState.get(),
               onChange: function onChange(e) {
                 return churchState.set(e.target.value);
               },
-              placeholder: "State",
-              maxLength: 255,
-              required: true
+              required: true,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "",
+                disabled: true,
+                selected: true,
+                children: "State"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "VIC",
+                children: "Victoria"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "NSW",
+                children: "New South Wales"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "QLD",
+                children: "Queensland"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "TAS",
+                children: "Tasmania"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "WA",
+                children: "Western Australia"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "SA",
+                children: "South Australia"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "NT",
+                children: "Northern Territory"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                value: "ACT",
+                children: "Australian Capital Territory"
+              })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
               htmlFor: "postal_code",
-              children: "ZIP Code"
+              children: "Postal Code"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               type: "number",
               id: "postal_code",
@@ -9704,11 +9731,12 @@ var InitialForm = function InitialForm() {
               loading.set(true);
               formData = new FormData();
               formData.append("email", email.get());
+              formData.append("role", "church");
               apiUrl = "http://localhost:8000";
-              _context.next = 8;
+              _context.next = 9;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(apiUrl, "/api/auth/validate-email"), formData);
 
-            case 8:
+            case 9:
               response = _context.sent;
               loading.set(false);
 
@@ -9716,11 +9744,11 @@ var InitialForm = function InitialForm() {
                 stepIndex.set(stepIndex.get() + 1);
               }
 
-              _context.next = 19;
+              _context.next = 20;
               break;
 
-            case 13:
-              _context.prev = 13;
+            case 14:
+              _context.prev = 14;
               _context.t0 = _context["catch"](1);
               loading.set(false);
               message = "Oops! Something went wrong...";
@@ -9734,12 +9762,12 @@ var InitialForm = function InitialForm() {
 
               errorMessage.set(message);
 
-            case 19:
+            case 20:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[1, 13]]);
+      }, _callee, null, [[1, 14]]);
     }));
 
     return function handleValidateEmail(_x) {
@@ -9770,7 +9798,7 @@ var InitialForm = function InitialForm() {
                 children: "Church Portal"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 className: "text-gray-500 font-light",
-                children: "Welcome to CopperCoins portal, mauris neque nisi, faucibus non elementum in, convallis et eros."
+                children: "Welcome to CopperCoins portal"
               })]
             }), errorMessage.get() != "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800",
@@ -10887,7 +10915,7 @@ var Login = function Login() {
                 children: "Church Portal"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "",
-                children: "Welcome to CopperCoins portal, mauris neque nisi, faucibus non elementum in, convallis et eros."
+                children: "Welcome to CopperCoins portal"
               })]
             }), validation.message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800",

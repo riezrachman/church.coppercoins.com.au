@@ -21,6 +21,8 @@ import LoadingButton from "../LoadingButton";
 import { Link } from "react-router-dom";
 
 const Agreement = () => {
+    const apiUrl = process.env.MIX_MAIN_APP_URL;
+
     const stepIndex = useState(stepIndexState);
 
     const agreeAllState = createState(false);
@@ -94,7 +96,6 @@ const Agreement = () => {
             formData.append("church[country]", churchCountry.get());
             formData.append("church[postal_code]", churchPostalCode.get());
 
-            const apiUrl = process.env.MIX_MAIN_APP_URL;
             const response = await axios.post(
                 `${apiUrl}/api/auth/sign-up`,
                 formData
@@ -173,7 +174,10 @@ const Agreement = () => {
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             I agree and understand the{" "}
-                            <Link to={`/privacy-policy`} className="underline">
+                            <Link
+                                to={`${apiUrl}/terms/website-clause`}
+                                className="underline"
+                            >
                                 Privacy Policy
                             </Link>
                         </label>
@@ -194,7 +198,10 @@ const Agreement = () => {
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             I agree and understand the{" "}
-                            <Link to={`/terms`} className="underline">
+                            <Link
+                                to={`${apiUrl}/terms/website-clause`}
+                                className="underline"
+                            >
                                 Website Terms of Use
                             </Link>
                         </label>
@@ -215,7 +222,10 @@ const Agreement = () => {
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             I agree and understand the{" "}
-                            <Link to={`/terms`} className="underline">
+                            <Link
+                                to={`${apiUrl}/terms/website-clause`}
+                                className="underline"
+                            >
                                 Charity Terms of Use
                             </Link>
                         </label>
