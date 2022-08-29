@@ -38,7 +38,13 @@ const InitialForm = () => {
             );
             loading.set(false);
             if (response.status == 200) {
-                stepIndex.set(stepIndex.get() + 1);
+                if (response.data.data == null) {
+                    stepIndex.set(stepIndex.get() + 1);
+                } else {
+                    errorMessage.set(
+                        "User already exists. Please use another email..."
+                    );
+                }
             }
         } catch (error) {
             loading.set(false);

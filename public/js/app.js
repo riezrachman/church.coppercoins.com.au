@@ -7768,7 +7768,7 @@ var ProfileComponent = function ProfileComponent() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/church/me"), {
@@ -8067,7 +8067,7 @@ var Navbar = function Navbar() {
               _context.prev = 0;
               e.preventDefault();
               formData = new FormData();
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(apiUrl, "/api/auth/sign-out"), formData);
 
@@ -8102,7 +8102,7 @@ var Navbar = function Navbar() {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "container flex flex-wrap justify-between items-center mx-auto",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        href: "http://localhost:8000",
+        href: "https://coppercoins.com.au",
         className: "flex items-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
           src: "/images/logo_full.png",
@@ -8314,7 +8314,7 @@ var ChurchForm = function ChurchForm() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/church/me"), {
@@ -8838,7 +8838,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var Agreement = function Agreement() {
-  var apiUrl = "http://localhost:8000";
+  var apiUrl = "https://coppercoins.com.au";
   var stepIndex = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_2__.useState)(_RegisterController__WEBPACK_IMPORTED_MODULE_4__.stepIndexState);
   var agreeAllState = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_2__.createState)(false);
   var agreeAll = (0,_hookstate_core__WEBPACK_IMPORTED_MODULE_2__.useState)(agreeAllState);
@@ -8955,7 +8955,7 @@ var Agreement = function Agreement() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-        href: "http://localhost:8000",
+        href: "https://coppercoins.com.au",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9157,7 +9157,7 @@ var BankAccount = function BankAccount() {
             case 0:
               _context.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 6;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(apiUrl, "/api/bank-institution"), {
@@ -9219,7 +9219,7 @@ var BankAccount = function BankAccount() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
-        href: "http://localhost:8000",
+        href: "https://coppercoins.com.au",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9374,7 +9374,7 @@ var ChurchProfile = function ChurchProfile() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://localhost:8000",
+        href: "https://coppercoins.com.au",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9575,7 +9575,7 @@ var ContactPerson = function ContactPerson() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://localhost:8000",
+        href: "https://coppercoins.com.au",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -9732,7 +9732,7 @@ var InitialForm = function InitialForm() {
               formData = new FormData();
               formData.append("email", email.get());
               formData.append("role", "church");
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               _context.next = 9;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(apiUrl, "/api/auth/validate-email"), formData);
 
@@ -9741,7 +9741,11 @@ var InitialForm = function InitialForm() {
               loading.set(false);
 
               if (response.status == 200) {
-                stepIndex.set(stepIndex.get() + 1);
+                if (response.data.data == null) {
+                  stepIndex.set(stepIndex.get() + 1);
+                } else {
+                  errorMessage.set("User already exists. Please use another email...");
+                }
               }
 
               _context.next = 20;
@@ -9786,7 +9790,7 @@ var InitialForm = function InitialForm() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "bg-white rounded-lg w-full p-12 space-y-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-              href: "http://localhost:8000",
+              href: "https://coppercoins.com.au",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 className: "h-12",
                 src: "/images/logo_full.png",
@@ -10044,7 +10048,7 @@ var Verification = function Verification() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "bg-[url('/images/bg_login.png')] bg-right bg-cover bg-no-repeat h-screen p-12 space-y-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://localhost:8000",
+        href: "https://coppercoins.com.au",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           className: "h-12",
           src: "/images/logo_full.png",
@@ -10286,7 +10290,7 @@ var CampaignManagement = function CampaignManagement() {
               formData.append("bsb", bsb);
               formData.append("account_name", accountName);
               formData.append("account_number", accountNumber);
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context.next = 13;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/church-bank"), formData, {
@@ -10343,7 +10347,7 @@ var CampaignManagement = function CampaignManagement() {
             case 0:
               _context2.prev = 0;
               setLoading(true);
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               token = localStorage.getItem("token");
               _context2.next = 6;
               return getBankInstitution();
@@ -10414,7 +10418,7 @@ var CampaignManagement = function CampaignManagement() {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.prev = 0;
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               _context3.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(apiUrl, "/api/bank-institution"), {
                 headers: {
@@ -10848,7 +10852,7 @@ var Login = function Login() {
               formData.append("email", email);
               formData.append("password", password);
               formData.append("role", "church");
-              apiUrl = "http://localhost:8000";
+              apiUrl = "https://coppercoins.com.au";
               _context.next = 10;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(apiUrl, "/api/auth/sign-in"), formData);
 
@@ -10903,7 +10907,7 @@ var Login = function Login() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "bg-white rounded-lg w-full p-12 space-y-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-              href: "http://localhost:8000",
+              href: "https://coppercoins.com.au",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                 className: "h-12",
                 src: "/images/logo_full.png",
@@ -11036,7 +11040,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Material = function Material() {
-  var apiUrl = "http://localhost:8000";
+  var apiUrl = "https://coppercoins.com.au";
   var token = localStorage.getItem("token");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
