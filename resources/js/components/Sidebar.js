@@ -27,10 +27,10 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <NavLink
-                            to={`/preference/withdrawal-account`}
+                            to={`/withdrawal-account/withdrawal-account`}
                             className={`flex items-center px-4 py-2 text-base font-normal ${
                                 location.pathname ==
-                                "/preference/withdrawal-account"
+                                "/withdrawal-account/withdrawal-account"
                                     ? "border-l-2 border-amber-500 text-amber-500"
                                     : "border-none text-neutral-500"
                             } hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300`}
@@ -56,7 +56,7 @@ const Sidebar = () => {
                         <NavLink
                             to={`/preference`}
                             className={`flex items-center px-4 py-2 text-base font-normal ${
-                                location.pathname == "/preference"
+                                location.pathname.includes("/preference")
                                     ? "border-l-2 border-amber-500 text-amber-500"
                                     : "border-none text-neutral-500"
                             } hover:border-l-2 hover:border-amber-500 hover:text-amber-500 duration-300`}

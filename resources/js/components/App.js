@@ -33,7 +33,7 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/preference/withdrawal-account"
+                    path="/withdrawal-account/withdrawal-account"
                     element={
                         <Protected>
                             <CampaignManagement />
